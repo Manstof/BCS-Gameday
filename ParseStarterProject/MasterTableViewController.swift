@@ -55,7 +55,6 @@ class MasterTableViewController: UITableViewController {
                 
             }
         })
-
         
     }
     
