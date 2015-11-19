@@ -14,6 +14,7 @@ class SchedulePFView: PFQueryTableViewController {
     
     override init(style: UITableViewStyle, className: String!) {
         super.init(style: style, className: className)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,4 +73,14 @@ class SchedulePFView: PFQueryTableViewController {
         return 1
         
     }
+    
+        override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 3
+        
+    }
+    
+
+    
+
 }
