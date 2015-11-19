@@ -14,7 +14,6 @@ class SchedulePFCell: PFTableViewCell {
 
     @IBOutlet weak var displayDate: UILabel!
     
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
