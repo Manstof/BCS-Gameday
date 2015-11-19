@@ -356,6 +356,9 @@
                     <navigationItem key="navigationItem" title="Schedule" id="O0f-nF-mfG">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="Vzo-KD-pWG"/>
                     </navigationItem>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="parseClassName" value="ObjectId"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="menuButton" destination="Vzo-KD-pWG" id="FzN-AZ-Wre"/>
                     </connections>
