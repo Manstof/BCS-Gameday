@@ -21,6 +21,14 @@
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
 		9830B38E1BFD8994002B4619 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B38D1BFD8994002B4619 /* ScheduleView.swift */; };
 		9830B3901BFD8F5A002B4619 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */; };
+		9830B3921BFD94E4002B4619 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B3911BFD94E4002B4619 /* HomeView.swift */; };
+		9830B3941BFDA48C002B4619 /* TeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B3931BFDA48C002B4619 /* TeamView.swift */; };
+		9830B3961BFDA4AF002B4619 /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B3951BFDA4AF002B4619 /* StandingsView.swift */; };
+		9830B3981BFDA4BF002B4619 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B3971BFDA4BF002B4619 /* EventsView.swift */; };
+		9830B39A1BFDA4D8002B4619 /* VIPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B3991BFDA4D8002B4619 /* VIPView.swift */; };
+		9830B39C1BFDA6F4002B4619 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39B1BFDA6F4002B4619 /* TeamCell.swift */; };
+		9830B39E1BFDA6FD002B4619 /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */; };
+		9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39F1BFDA708002B4619 /* EventsCell.swift */; };
 		983616D71BFAEF910010C821 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983616D61BFAEF910010C821 /* SWRevealViewController.m */; };
 		983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983616DC1BFB9E7B0010C821 /* MenuView.swift */; };
 		987EC9D91B844FEA004B9DE0 /* sandBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987EC9D81B844FEA004B9DE0 /* sandBackground.jpg */; };
@@ -54,6 +62,14 @@
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		9830B38D1BFD8994002B4619 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
 		9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		9830B3911BFD94E4002B4619 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9830B3931BFDA48C002B4619 /* TeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamView.swift; sourceTree = "<group>"; };
+		9830B3951BFDA4AF002B4619 /* StandingsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
+		9830B3971BFDA4BF002B4619 /* EventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
+		9830B3991BFDA4D8002B4619 /* VIPView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPView.swift; sourceTree = "<group>"; };
+		9830B39B1BFDA6F4002B4619 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
+		9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
+		9830B39F1BFDA708002B4619 /* EventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
 		983616D51BFAEF910010C821 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		983616D61BFAEF910010C821 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		983616DC1BFB9E7B0010C821 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -120,9 +136,17 @@
 				81BA814C1A49DA1800E65899 /* LoginView.swift */,
 				98CEDE4B1B6893DB00CC3983 /* SignUpView.swift */,
 				983616DC1BFB9E7B0010C821 /* MenuView.swift */,
-				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				9830B3911BFD94E4002B4619 /* HomeView.swift */,
+				9830B3931BFDA48C002B4619 /* TeamView.swift */,
+				9830B39B1BFDA6F4002B4619 /* TeamCell.swift */,
 				9830B38D1BFD8994002B4619 /* ScheduleView.swift */,
 				9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */,
+				9830B3951BFDA4AF002B4619 /* StandingsView.swift */,
+				9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */,
+				9830B3971BFDA4BF002B4619 /* EventsView.swift */,
+				9830B39F1BFDA708002B4619 /* EventsCell.swift */,
+				9830B3991BFDA4D8002B4619 /* VIPView.swift */,
+				81BA814E1A49DA1800E65899 /* Main.storyboard */,
 				98AF92BA1BC37AD700AF2015 /* Test.swift */,
 				98AF92B61BC3508100AF2015 /* Teams.swift */,
 				98AF92B81BC3797900AF2015 /* Schedule.swift */,
@@ -261,16 +285,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */,
+				9830B39C1BFDA6F4002B4619 /* TeamCell.swift in Sources */,
 				98CEDE4C1B6893DB00CC3983 /* SignUpView.swift in Sources */,
+				9830B3981BFDA4BF002B4619 /* EventsView.swift in Sources */,
 				983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */,
 				98AF92B71BC3508100AF2015 /* Teams.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* LoginView.swift in Sources */,
+				9830B39E1BFDA6FD002B4619 /* StandingsCell.swift in Sources */,
 				9830B3901BFD8F5A002B4619 /* ScheduleCell.swift in Sources */,
+				9830B3961BFDA4AF002B4619 /* StandingsView.swift in Sources */,
+				9830B3921BFD94E4002B4619 /* HomeView.swift in Sources */,
 				983616D71BFAEF910010C821 /* SWRevealViewController.m in Sources */,
+				9830B39A1BFDA4D8002B4619 /* VIPView.swift in Sources */,
 				9830B38E1BFD8994002B4619 /* ScheduleView.swift in Sources */,
 				98AF92BB1BC37AD700AF2015 /* Test.swift in Sources */,
 				98AF92B91BC3797900AF2015 /* Schedule.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
+				9830B3941BFDA48C002B4619 /* TeamView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

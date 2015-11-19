@@ -11,9 +11,11 @@ import Parse
 
 class MenuView: UITableViewController {
 
-    let MenuViewItems = ["Home", "Team", "Schedule", "Standings", "Events", "VIP Card"]
+    let MenuViewItems = ["Home", "Team", "Schedule", "Standings", "Events", "VIP"]
     
     var team = String()
+    
+    var menuSegue = String()
     
     let backgroundColor = UIColor(
         red: 233/255.0,
@@ -100,16 +102,12 @@ class MenuView: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let index = String(indexPath.row)
+        let segue = self.MenuViewItems[indexPath.row]
         
-        let segue = "MenuSegue"
+        print(segue)
         
-        let segueString = segue + index
+        performSegueWithIdentifier(segue, sender: self)
         
-        performSegueWithIdentifier(segueString, sender: self)
-        
-        print("row clicked :: ", indexPath.row)
-    
     }
     
     override func didReceiveMemoryWarning() {
