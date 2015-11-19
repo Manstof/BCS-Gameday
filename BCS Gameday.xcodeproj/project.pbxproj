@@ -19,9 +19,10 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
+		9830B38E1BFD8994002B4619 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B38D1BFD8994002B4619 /* ScheduleView.swift */; };
+		9830B3901BFD8F5A002B4619 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */; };
 		983616D71BFAEF910010C821 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983616D61BFAEF910010C821 /* SWRevealViewController.m */; };
 		983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983616DC1BFB9E7B0010C821 /* MenuView.swift */; };
-		983616DF1BFBA8C30010C821 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983616DE1BFBA8C30010C821 /* ScheduleView.swift */; };
 		987EC9D91B844FEA004B9DE0 /* sandBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987EC9D81B844FEA004B9DE0 /* sandBackground.jpg */; };
 		98AF92B71BC3508100AF2015 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF92B61BC3508100AF2015 /* Teams.swift */; };
 		98AF92B91BC3797900AF2015 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF92B81BC3797900AF2015 /* Schedule.swift */; };
@@ -51,10 +52,11 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		9830B38D1BFD8994002B4619 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
+		9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		983616D51BFAEF910010C821 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		983616D61BFAEF910010C821 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		983616DC1BFB9E7B0010C821 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
-		983616DE1BFBA8C30010C821 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		987EC9D81B844FEA004B9DE0 /* sandBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sandBackground.jpg; sourceTree = "<group>"; };
 		98AF92B61BC3508100AF2015 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		98AF92B81BC3797900AF2015 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -118,8 +120,9 @@
 				81BA814C1A49DA1800E65899 /* LoginView.swift */,
 				98CEDE4B1B6893DB00CC3983 /* SignUpView.swift */,
 				983616DC1BFB9E7B0010C821 /* MenuView.swift */,
-				983616DE1BFBA8C30010C821 /* ScheduleView.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
+				9830B38D1BFD8994002B4619 /* ScheduleView.swift */,
+				9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */,
 				98AF92BA1BC37AD700AF2015 /* Test.swift */,
 				98AF92B61BC3508100AF2015 /* Teams.swift */,
 				98AF92B81BC3797900AF2015 /* Schedule.swift */,
@@ -262,8 +265,9 @@
 				983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */,
 				98AF92B71BC3508100AF2015 /* Teams.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* LoginView.swift in Sources */,
+				9830B3901BFD8F5A002B4619 /* ScheduleCell.swift in Sources */,
 				983616D71BFAEF910010C821 /* SWRevealViewController.m in Sources */,
-				983616DF1BFBA8C30010C821 /* ScheduleView.swift in Sources */,
+				9830B38E1BFD8994002B4619 /* ScheduleView.swift in Sources */,
 				98AF92BB1BC37AD700AF2015 /* Test.swift in Sources */,
 				98AF92B91BC3797900AF2015 /* Schedule.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
