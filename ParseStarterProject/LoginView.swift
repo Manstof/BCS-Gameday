@@ -8,7 +8,7 @@ import UIKit
 import Parse
 import FBSDKCoreKit
 
-class LoginScreen: UIViewController {
+class LoginView: UIViewController {
     
     //View Controller Things
 
@@ -137,7 +137,7 @@ class LoginScreen: UIViewController {
                         
                         // Logged In!
                         
-                        self.performSegueWithIdentifier("showMasterView", sender: self)
+                        self.performSegueWithIdentifier("LoginToReveal", sender: self)
                         
                         
                     } else {

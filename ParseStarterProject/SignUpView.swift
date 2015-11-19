@@ -11,7 +11,7 @@ import Parse
 
 var findTeam = Teams()
 
-class SignUpViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SignUpView: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var teamPicker: UIPickerView! = UIPickerView()
     
@@ -242,9 +242,9 @@ class SignUpViewController: UIViewController, UINavigationControllerDelegate, UI
             //Kill spinner
             self.activityIndicator.stopAnimating()
             UIApplication.sharedApplication().endIgnoringInteractionEvents()
-        
+            
             //Move to next screen
-            performSegueWithIdentifier("SignUpToContent", sender: self)
+            performSegueWithIdentifier("GO", sender: self)
         
             }
     }

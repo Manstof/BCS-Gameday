@@ -1,33 +1,35 @@
 //
-//  MasterTableViewController.swift
+//  ScheduleView.swift
 //  BCS Gameday
 //
-//  Created by Mark Manstof on 8/1/15.
-//  Copyright © 2015 Parse. All rights reserved.
+//  Created by Mark Manstof on 11/17/15.
+//  Copyright © 2015 Manstof. All rights reserved.
 //
 
 import UIKit
 import Parse
 
-class MasterTableViewController: UITableViewController {
+class ScheduleView: UITableViewController {
     
     var dateArray = [String]()
     
-    //var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    override func viewWillAppear(animated: Bool) {
-        
-    }
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        //Control Menu Bar
+        if self.revealViewController() != nil {
+            
+            menuButton.target = self.revealViewController()
+            
+            menuButton.action = "revealToggle:"
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            
+        }
+        
+        //Get Dates for Schedule
         let query = PFQuery(className: "Date")
         
         query.findObjectsInBackgroundWithBlock({ (objects, error) -> Void in
@@ -35,70 +37,61 @@ class MasterTableViewController: UITableViewController {
             if error == nil {
                 
                 for object in objects! {
-                    
+
                     let date = object["Date"] as! String
                     
                     self.dateArray.append(date)
                     
-                    //Do this for a dictionary
-                    //self.gradePickerKeys.append(object.objectId)
-                    //self.gradePickerValues.append(name)
-                    
                 }
                 
-                
             } else {
-                
-                // Log details of the failure
                 
                 print(error)
                 
             }
         })
-
-        
     }
     
-    override func viewDidAppear(animated: Bool) {
-        
-        //Spinner until the program loads the dates
-        /*
-        activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-        */
-        
-    }
-
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    
     }
-
-    // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return 1
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return dateArray.count
+        
     }
-    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = dateArray[indexPath.row]
+        print("test")
+        
+        cell.textLabel?.text = self.dateArray[indexPath.row]
         
         return cell
+        
     }
+
+    /*
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
 
     /*
     // Override to support conditional editing of the table view.

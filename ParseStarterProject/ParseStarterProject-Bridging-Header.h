@@ -9,5 +9,8 @@
 
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "SWRevealViewController.h"
+#import <ParseUI/ParseUI.h>
+
 
 #endif
