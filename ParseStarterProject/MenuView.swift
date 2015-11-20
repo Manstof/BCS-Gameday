@@ -11,7 +11,7 @@ import Parse
 
 class MenuView: UITableViewController {
 
-    let MenuViewItems = ["Home", "Team", "Schedule", "Standings", "Events", "VIP"]
+    let MenuViewItems = ["Home", "Team", "Schedule", "Standings", "Events", "VIP", "Logout"]
     
     var team = String()
     

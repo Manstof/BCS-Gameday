@@ -22,9 +22,17 @@ class LoginView: UIViewController {
     
     @IBOutlet var loginButton: UIButton!
     
+    var imageSet = false
+    
     var signupActive = true
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    let backgroundColor = UIColor(
+        red: 233/255.0,
+        green: 150/255.0,
+        blue: 122/255.0,
+        alpha: 1.0)
     
     //**************
     //Display Alerts
@@ -72,6 +80,14 @@ class LoginView: UIViewController {
             self.performSegueWithIdentifier("showMasterView", sender: self)
         
         }*/
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //Setbackground Color
+        self.view.backgroundColor = backgroundColor
+        
     }
     
     //************************
@@ -202,16 +218,55 @@ class LoginView: UIViewController {
                 
                 if let user = user {
                     
+                    //****************************
+                    //Get facebook profile picture
+                    if let username = PFUser.currentUser()?.username {
+                        
+                        let graphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name"])
+                        
+                        graphRequest.startWithCompletionHandler( {
+                            
+                            (connection, result, error) -> Void in
+                            
+                            if error != nil {
+                                
+                                print(error)
+                                
+                            } else if let result = result {
+                                
+                                PFUser.currentUser()?["name"] = result["name"]
+                                
+                                //Get profile picture
+                                
+                                PFUser.currentUser()?.save()
+                                
+                                let userId = result["id"] as! String
+                                
+                                let facebookProfilePictureUrl = "https://graph.facebook.com/" + userId + "/picture?type=large"
+                                
+                                if let fbpicUrl = NSURL(string: facebookProfilePictureUrl) {
+                                    
+                                    if let data = NSData(contentsOfURL: fbpicUrl) {
+                                        
+                                        //Save Image
+                                        let imageFile:PFFile = PFFile(data: data)
+                                        
+                                        PFUser.currentUser()?["image"] = imageFile
+                                        
+                                        PFUser.currentUser()?.save()
+                                        
+                                        self.imageSet = true
+                                    }
+                                }
+                            }
+                        })
+                    
                     self.performSegueWithIdentifier("showSigninScreen", sender: self)
                     
+                    }
                 }
             }
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
     }
     
     override func didReceiveMemoryWarning() {

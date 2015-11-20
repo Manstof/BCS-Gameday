@@ -9,6 +9,8 @@
 import UIKit
 
 class EventsCell: PFTableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
 
     /*
     // Only override drawRect: if you perform custom drawing.

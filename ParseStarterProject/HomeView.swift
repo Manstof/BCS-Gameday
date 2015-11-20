@@ -27,6 +27,12 @@ class HomeView: UIViewController {
             
         }
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class StandingsView: PFQueryTableViewController {
 
@@ -26,21 +28,29 @@ class StandingsView: PFQueryTableViewController {
             
         }
     }
+    
+    override func queryForTable() -> PFQuery {
+        
+        let query = PFQuery(className: "Date")
+        
+        query.orderByAscending("Date")
+        
+        return query
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject?) -> PFTableViewCell? {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! StandingsCell
+        
+        cell.titleLabel.text = object?.objectForKey("Date") as? String
+        
+        return cell
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

@@ -44,31 +44,29 @@ class SignUpView: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
     }
     
-    //*********************
-    //Setup Profile Picture
-    @IBAction func chooseImage(sender: AnyObject) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let image = UIImagePickerController()
-        image.delegate = self
-        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        image.allowsEditing = false
-        
-        self.presentViewController(image, animated: true, completion: nil)
         
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        
-        self.dismissViewControllerAnimated(true, completion:nil)
-        
-        userImage.image = image
-        
-        self.imageSet = true
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //********************
+        //Set background color
+        let backgroundColor = UIColor(
+            red: 233/255.0,
+            green: 150/255.0,
+            blue: 122/255.0,
+            alpha: 1.0)
+        
+        self.view.backgroundColor = backgroundColor
         
         //****************************
         //Get facebook profile picture
@@ -99,9 +97,28 @@ class SignUpView: UIViewController, UINavigationControllerDelegate, UIImagePicke
                     if let fbpicUrl = NSURL(string: facebookProfilePictureUrl) {
                     
                         if let data = NSData(contentsOfURL: fbpicUrl) {
-                        
+                            
+                            //Round Image
+                            self.userImage.layer.borderWidth = 1
+                            
+                            self.userImage.layer.masksToBounds = false
+                            
+                            self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
+                            
+                            self.userImage.layer.cornerRadius = self.userImage.frame.height/2
+                            
+                            self.userImage.clipsToBounds = true
+                            
+                            //Change Size - End Size
+                            //self.userImage.frame = CGRectMake(self.userImage.frame.width/2, self.userImage.frame.height/4, 100, 300)
+                            
+                            //Transparancy
+                            //self.userImage.alpha = 1
+                            
+                            //Set Image
                             self.userImage.image = UIImage(data: data)
-                        
+                            
+                            //Save Image
                             let imageFile:PFFile = PFFile(data: data)
                         
                             PFUser.currentUser()?["image"] = imageFile
@@ -143,6 +160,34 @@ class SignUpView: UIViewController, UINavigationControllerDelegate, UIImagePicke
                 
             }
         })
+        
+    }
+    
+    //*********************
+    //Setup Profile Picture
+    @IBAction func chooseImage(sender: AnyObject) {
+        
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        image.allowsEditing = false
+        
+        self.presentViewController(image, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        
+        self.dismissViewControllerAnimated(true, completion:nil)
+        
+        //Round Image
+        userImage.layer.borderWidth = 1
+        userImage.layer.masksToBounds = false
+        userImage.layer.borderColor = UIColor.whiteColor().CGColor
+        userImage.layer.cornerRadius = userImage.frame.height/2
+        userImage.clipsToBounds = true
+        userImage.image = image
+        self.imageSet = true
         
     }
     
