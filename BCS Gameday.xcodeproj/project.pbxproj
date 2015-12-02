@@ -19,6 +19,7 @@
 		81BA817B1A49E0E500E65899 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817A1A49E0E500E65899 /* SystemConfiguration.framework */; };
 		81BA817F1A49E0F000E65899 /* libstdc++.6.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */; };
 		81BA81811A49E10C00E65899 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81BA81801A49E10C00E65899 /* ParseUI.framework */; };
+		982B88E91C021DE500FB6A88 /* beachFootballVector.png in Resources */ = {isa = PBXBuildFile; fileRef = 982B88E81C021DE500FB6A88 /* beachFootballVector.png */; };
 		9830B38E1BFD8994002B4619 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B38D1BFD8994002B4619 /* ScheduleView.swift */; };
 		9830B3901BFD8F5A002B4619 /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */; };
 		9830B3921BFD94E4002B4619 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B3911BFD94E4002B4619 /* HomeView.swift */; };
@@ -29,9 +30,11 @@
 		9830B39C1BFDA6F4002B4619 /* TeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39B1BFDA6F4002B4619 /* TeamCell.swift */; };
 		9830B39E1BFDA6FD002B4619 /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */; };
 		9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39F1BFDA708002B4619 /* EventsCell.swift */; };
+		983203E61C00C998000A5DB5 /* Leagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983203E51C00C998000A5DB5 /* Leagues.swift */; };
 		983616D71BFAEF910010C821 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983616D61BFAEF910010C821 /* SWRevealViewController.m */; };
 		983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983616DC1BFB9E7B0010C821 /* MenuView.swift */; };
 		987EC9D91B844FEA004B9DE0 /* sandBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 987EC9D81B844FEA004B9DE0 /* sandBackground.jpg */; };
+		989CF9C01C0E7B02009341CB /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 989CF9BF1C0E7B02009341CB /* Home.png */; };
 		98AF92B71BC3508100AF2015 /* Teams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF92B61BC3508100AF2015 /* Teams.swift */; };
 		98AF92B91BC3797900AF2015 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF92B81BC3797900AF2015 /* Schedule.swift */; };
 		98AF92BB1BC37AD700AF2015 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AF92BA1BC37AD700AF2015 /* Test.swift */; };
@@ -60,6 +63,7 @@
 		81BA817E1A49E0F000E65899 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		81BA81801A49E10C00E65899 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		81BA81821A49E27F00E65899 /* ParseStarterProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ParseStarterProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		982B88E81C021DE500FB6A88 /* beachFootballVector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = beachFootballVector.png; sourceTree = "<group>"; };
 		9830B38D1BFD8994002B4619 /* ScheduleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleView.swift; path = ../ScheduleView.swift; sourceTree = "<group>"; };
 		9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
 		9830B3911BFD94E4002B4619 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -70,10 +74,12 @@
 		9830B39B1BFDA6F4002B4619 /* TeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamCell.swift; sourceTree = "<group>"; };
 		9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
 		9830B39F1BFDA708002B4619 /* EventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
+		983203E51C00C998000A5DB5 /* Leagues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leagues.swift; sourceTree = "<group>"; };
 		983616D51BFAEF910010C821 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		983616D61BFAEF910010C821 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		983616DC1BFB9E7B0010C821 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		987EC9D81B844FEA004B9DE0 /* sandBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sandBackground.jpg; sourceTree = "<group>"; };
+		989CF9BF1C0E7B02009341CB /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home.png; sourceTree = "<group>"; };
 		98AF92B61BC3508100AF2015 /* Teams.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teams.swift; sourceTree = "<group>"; };
 		98AF92B81BC3797900AF2015 /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		98AF92BA1BC37AD700AF2015 /* Test.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
@@ -149,8 +155,10 @@
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
 				98AF92BA1BC37AD700AF2015 /* Test.swift */,
 				98AF92B61BC3508100AF2015 /* Teams.swift */,
+				983203E51C00C998000A5DB5 /* Leagues.swift */,
 				98AF92B81BC3797900AF2015 /* Schedule.swift */,
 				81BA81511A49DA1800E65899 /* Images.xcassets */,
+				982B88E71C021DBF00FB6A88 /* Images */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
 			);
 			path = ParseStarterProject;
@@ -191,6 +199,15 @@
 				81BA81761A49E0D500E65899 /* libsqlite3.dylib */,
 			);
 			name = "System Frameworks";
+			sourceTree = "<group>";
+		};
+		982B88E71C021DBF00FB6A88 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				989CF9BF1C0E7B02009341CB /* Home.png */,
+				982B88E81C021DE500FB6A88 /* beachFootballVector.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,9 +269,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				982B88E91C021DE500FB6A88 /* beachFootballVector.png in Resources */,
 				98CEDE4A1B688F3D00CC3983 /* Halo Brute.png in Resources */,
 				81BA81501A49DA1800E65899 /* Main.storyboard in Resources */,
 				98CEDE461B688DDD00CC3983 /* Login with facebook.png in Resources */,
+				989CF9C01C0E7B02009341CB /* Home.png in Resources */,
 				987EC9D91B844FEA004B9DE0 /* sandBackground.jpg in Resources */,
 				81BA81521A49DA1800E65899 /* Images.xcassets in Resources */,
 				98CEDE481B688E4F00CC3983 /* Beach City Sport.jpg in Resources */,
@@ -286,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */,
+				983203E61C00C998000A5DB5 /* Leagues.swift in Sources */,
 				9830B39C1BFDA6F4002B4619 /* TeamCell.swift in Sources */,
 				98CEDE4C1B6893DB00CC3983 /* SignUpView.swift in Sources */,
 				9830B3981BFDA4BF002B4619 /* EventsView.swift in Sources */,
