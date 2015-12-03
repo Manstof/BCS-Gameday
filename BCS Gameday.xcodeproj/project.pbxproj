@@ -44,7 +44,11 @@
 		98CEDE461B688DDD00CC3983 /* Login with facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 98CEDE451B688DDD00CC3983 /* Login with facebook.png */; };
 		98CEDE481B688E4F00CC3983 /* Beach City Sport.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98CEDE471B688E4F00CC3983 /* Beach City Sport.jpg */; };
 		98CEDE4A1B688F3D00CC3983 /* Halo Brute.png in Resources */ = {isa = PBXBuildFile; fileRef = 98CEDE491B688F3D00CC3983 /* Halo Brute.png */; };
-		98CEDE4C1B6893DB00CC3983 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEDE4B1B6893DB00CC3983 /* SignUpView.swift */; };
+		98CEDE4C1B6893DB00CC3983 /* SignUpUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CEDE4B1B6893DB00CC3983 /* SignUpUser.swift */; };
+		98F52F5E1C0FC2F300CB214F /* SignUpLeague.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F5D1C0FC2F300CB214F /* SignUpLeague.swift */; };
+		98F52F601C0FC30B00CB214F /* SignUpTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F5F1C0FC30B00CB214F /* SignUpTeam.swift */; };
+		98F52F621C0FC33600CB214F /* Code Clips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F611C0FC33600CB214F /* Code Clips.swift */; };
+		98F52F641C0FF09F00CB214F /* SignUpLeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F631C0FF09F00CB214F /* SignUpLeagueCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,7 +93,11 @@
 		98CEDE451B688DDD00CC3983 /* Login with facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Login with facebook.png"; sourceTree = "<group>"; };
 		98CEDE471B688E4F00CC3983 /* Beach City Sport.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Beach City Sport.jpg"; sourceTree = "<group>"; };
 		98CEDE491B688F3D00CC3983 /* Halo Brute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Halo Brute.png"; sourceTree = "<group>"; };
-		98CEDE4B1B6893DB00CC3983 /* SignUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		98CEDE4B1B6893DB00CC3983 /* SignUpUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpUser.swift; sourceTree = "<group>"; };
+		98F52F5D1C0FC2F300CB214F /* SignUpLeague.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLeague.swift; sourceTree = "<group>"; };
+		98F52F5F1C0FC30B00CB214F /* SignUpTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTeam.swift; sourceTree = "<group>"; };
+		98F52F611C0FC33600CB214F /* Code Clips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Code Clips.swift"; sourceTree = "<group>"; };
+		98F52F631C0FF09F00CB214F /* SignUpLeagueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLeagueCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +125,7 @@
 		81BA813C1A49DA1800E65899 = {
 			isa = PBXGroup;
 			children = (
-				81BA81471A49DA1800E65899 /* ParseStarterProject */,
+				81BA81471A49DA1800E65899 /* BCS Gameday */,
 				81BA816A1A49DB5600E65899 /* Frameworks */,
 				81BA81461A49DA1800E65899 /* Products */,
 				98CEDE451B688DDD00CC3983 /* Login with facebook.png */,
@@ -135,32 +143,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		81BA81471A49DA1800E65899 /* ParseStarterProject */ = {
+		81BA81471A49DA1800E65899 /* BCS Gameday */ = {
 			isa = PBXGroup;
 			children = (
 				81BA814A1A49DA1800E65899 /* AppDelegate.swift */,
-				81BA814C1A49DA1800E65899 /* LoginView.swift */,
-				98CEDE4B1B6893DB00CC3983 /* SignUpView.swift */,
-				983616DC1BFB9E7B0010C821 /* MenuView.swift */,
-				9830B3911BFD94E4002B4619 /* HomeView.swift */,
-				9830B3931BFDA48C002B4619 /* TeamView.swift */,
-				9830B39B1BFDA6F4002B4619 /* TeamCell.swift */,
-				9830B38D1BFD8994002B4619 /* ScheduleView.swift */,
-				9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */,
-				9830B3951BFDA4AF002B4619 /* StandingsView.swift */,
-				9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */,
-				9830B3971BFDA4BF002B4619 /* EventsView.swift */,
-				9830B39F1BFDA708002B4619 /* EventsCell.swift */,
-				9830B3991BFDA4D8002B4619 /* VIPView.swift */,
 				81BA814E1A49DA1800E65899 /* Main.storyboard */,
-				98AF92BA1BC37AD700AF2015 /* Test.swift */,
-				98AF92B61BC3508100AF2015 /* Teams.swift */,
-				983203E51C00C998000A5DB5 /* Leagues.swift */,
-				98AF92B81BC3797900AF2015 /* Schedule.swift */,
-				81BA81511A49DA1800E65899 /* Images.xcassets */,
-				982B88E71C021DBF00FB6A88 /* Images */,
+				98F52F571C0FC06D00CB214F /* SignUp */,
+				98F52F591C0FC0C600CB214F /* Core */,
+				98F52F5A1C0FC0F000CB214F /* WebContent */,
 				81BA81481A49DA1800E65899 /* Supporting Files */,
+				982B88E71C021DBF00FB6A88 /* Images */,
+				81BA81511A49DA1800E65899 /* Images.xcassets */,
 			);
+			name = "BCS Gameday";
 			path = ParseStarterProject;
 			sourceTree = "<group>";
 		};
@@ -208,6 +203,48 @@
 				982B88E81C021DE500FB6A88 /* beachFootballVector.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		98F52F571C0FC06D00CB214F /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				81BA814C1A49DA1800E65899 /* LoginView.swift */,
+				98CEDE4B1B6893DB00CC3983 /* SignUpUser.swift */,
+				98F52F5D1C0FC2F300CB214F /* SignUpLeague.swift */,
+				98F52F631C0FF09F00CB214F /* SignUpLeagueCell.swift */,
+				98F52F5F1C0FC30B00CB214F /* SignUpTeam.swift */,
+			);
+			name = SignUp;
+			sourceTree = "<group>";
+		};
+		98F52F591C0FC0C600CB214F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				983616DC1BFB9E7B0010C821 /* MenuView.swift */,
+				9830B3911BFD94E4002B4619 /* HomeView.swift */,
+				9830B3931BFDA48C002B4619 /* TeamView.swift */,
+				9830B39B1BFDA6F4002B4619 /* TeamCell.swift */,
+				9830B38D1BFD8994002B4619 /* ScheduleView.swift */,
+				9830B38F1BFD8F5A002B4619 /* ScheduleCell.swift */,
+				9830B3951BFDA4AF002B4619 /* StandingsView.swift */,
+				9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */,
+				9830B3971BFDA4BF002B4619 /* EventsView.swift */,
+				9830B39F1BFDA708002B4619 /* EventsCell.swift */,
+				9830B3991BFDA4D8002B4619 /* VIPView.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		98F52F5A1C0FC0F000CB214F /* WebContent */ = {
+			isa = PBXGroup;
+			children = (
+				98AF92BA1BC37AD700AF2015 /* Test.swift */,
+				98AF92B61BC3508100AF2015 /* Teams.swift */,
+				983203E51C00C998000A5DB5 /* Leagues.swift */,
+				98AF92B81BC3797900AF2015 /* Schedule.swift */,
+				98F52F611C0FC33600CB214F /* Code Clips.swift */,
+			);
+			name = WebContent;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,12 +342,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */,
+				98F52F601C0FC30B00CB214F /* SignUpTeam.swift in Sources */,
 				983203E61C00C998000A5DB5 /* Leagues.swift in Sources */,
+				98F52F5E1C0FC2F300CB214F /* SignUpLeague.swift in Sources */,
 				9830B39C1BFDA6F4002B4619 /* TeamCell.swift in Sources */,
-				98CEDE4C1B6893DB00CC3983 /* SignUpView.swift in Sources */,
+				98CEDE4C1B6893DB00CC3983 /* SignUpUser.swift in Sources */,
 				9830B3981BFDA4BF002B4619 /* EventsView.swift in Sources */,
+				98F52F641C0FF09F00CB214F /* SignUpLeagueCell.swift in Sources */,
 				983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */,
 				98AF92B71BC3508100AF2015 /* Teams.swift in Sources */,
+				98F52F621C0FC33600CB214F /* Code Clips.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* LoginView.swift in Sources */,
 				9830B39E1BFDA6FD002B4619 /* StandingsCell.swift in Sources */,
 				9830B3901BFD8F5A002B4619 /* ScheduleCell.swift in Sources */,
