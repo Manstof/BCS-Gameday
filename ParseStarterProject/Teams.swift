@@ -14,7 +14,7 @@ class Teams {
     
     func getTeams() {
         
-        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/66872/schedule?gameState=&teamId=&locationId=")
+        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/67883/schedule?gameState=&teamId=&locationId=")
         
         if let url = attemptedUrl {
             
@@ -26,6 +26,8 @@ class Teams {
                     
                     //Manipulate string to get the team information
                     var teamWebDataArray = webContent!.componentsSeparatedByString(">All s</option>")
+                    
+                    print(teamWebDataArray)
                     
                     let teamWebString = teamWebDataArray[1]
                         
@@ -51,7 +53,7 @@ class Teams {
                         print(team)
                         
                         //Saving Strings
-                        let teams = PFObject(className: "Team")
+                        let teams = PFObject(className: "Database")
                         
                         teams["Teams"] = team
                         

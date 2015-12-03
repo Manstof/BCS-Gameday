@@ -16,6 +16,10 @@ class LoginView: UIViewController {
     
     @IBOutlet var password: UITextField!
     
+    @IBOutlet weak var centerAlignUsername: NSLayoutConstraint!
+    
+    @IBOutlet weak var centerAlignPassword: NSLayoutConstraint!
+    
     @IBOutlet var signupButton: UIButton!
     
     @IBOutlet var registeredText: UILabel!
@@ -49,9 +53,33 @@ class LoginView: UIViewController {
         
     }
     
-    //******************************
-    //Skip view if already logged in
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        centerAlignUsername.constant -= view.bounds.width
+        
+        centerAlignPassword.constant -= view.bounds.width
+    
+    }
+    
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animateWithDuration(0.5, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
+            
+                self.centerAlignUsername.constant += self.view.bounds.width
+            
+                self.view.layoutIfNeeded()
+            
+            }, completion: nil)
+        
+        UIView.animateWithDuration(0.5, delay: 0.3, options: .CurveEaseIn, animations: {
+            
+            self.centerAlignPassword.constant += self.view.bounds.width
+            
+            self.view.layoutIfNeeded()
+            
+            }, completion: nil)
         
         /*
         //Logout User Code
@@ -92,7 +120,6 @@ class LoginView: UIViewController {
     
     //************************
     //Start Signup and Sign in
-    //Sign Up Button
     @IBAction func signUpButton(sender: AnyObject) {
         
         if username.text == "" || password.text == "" {
@@ -102,11 +129,17 @@ class LoginView: UIViewController {
         } else {
             
             activityIndicator = UIActivityIndicatorView(frame: CGRectMake(0, 0, 50, 50))
+            
             activityIndicator.center = self.view.center
+            
             activityIndicator.hidesWhenStopped = true
+            
             activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+            
             view.addSubview(activityIndicator)
+            
             activityIndicator.startAnimating()
+            
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             var errorMessage = "Please try again later"
@@ -123,8 +156,6 @@ class LoginView: UIViewController {
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     
                     if error == nil {
-                        
-                        // Signup successful
                         
                         self.performSegueWithIdentifier("showSigninScreen", sender: self)
                         

@@ -10,16 +10,16 @@ import UIKit
 import Parse
 import ParseUI
 
-class TeamCell: PFTableViewCell {
-
+class SignUpLeagueCell: PFTableViewCell {
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
-        // Drawing code
+    // Drawing code
     }
     */
-
+    
 }

@@ -35,6 +35,8 @@ class Schedule {
                     //***************ADD SOMETHING TO CLIP WHITE SPACE
                     for var date in dateDataArray {
                         
+                        print(date)
+                        
                         date = date.stringByReplacingOccurrencesOfString("</span> <abbr>@</abbr> <span class=\"time\">", withString: " @ ")
                         
                         date = date.stringByReplacingOccurrencesOfString("<", withString: "")

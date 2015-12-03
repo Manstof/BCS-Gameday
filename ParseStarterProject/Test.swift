@@ -36,6 +36,11 @@ class test: UIViewController {
     
     @IBAction func Button3(sender: AnyObject) {
         
+        let Update = leagues()
+        
+        Update.leagues()
+        
+        print(Update)
         
     }
 }
