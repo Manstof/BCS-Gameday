@@ -1,8 +1,8 @@
 //
-//  SignUpTeam.swift
+//  SignUpTeamCell.swift
 //  BCS Gameday
 //
-//  Created by Mark Manstof on 12/2/15.
+//  Created by Mark Manstof on 12/4/15.
 //  Copyright © 2015 Manstof. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class SignUpTeam: PFTableViewCell {
+class SignUpTeamCell: PFTableViewCell {
 
     /*
     // Only override drawRect: if you perform custom drawing.

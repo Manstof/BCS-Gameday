@@ -14,7 +14,11 @@ class Teams {
     
     func getTeams() {
         
-        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/67883/schedule?gameState=&teamId=&locationId=")
+        print(PFUser.currentUser())
+        
+        let leagueNumber = PFUser.currentUser()!["leagueNumber"] as? String
+        
+        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/\(leagueNumber!)/teams")
         
         if let url = attemptedUrl {
             
@@ -25,37 +29,52 @@ class Teams {
                     let webContent = NSString(data: urlContent, encoding: NSUTF8StringEncoding)
                     
                     //Manipulate string to get the team information
-                    var teamWebDataArray = webContent!.componentsSeparatedByString(">All s</option>")
+                    var teamDataArray = webContent!.componentsSeparatedByString("<!-- Main Content -->")
                     
-                    print(teamWebDataArray)
+                    var teamWebString = teamDataArray[1]
                     
-                    let teamWebString = teamWebDataArray[1]
-                        
-                    var teamDataArray = teamWebString.componentsSeparatedByString("</select>")
-                        
-                    let teamString = teamDataArray[0]
+                    teamWebString = teamWebString.stringByReplacingOccurrencesOfString("\t", withString: "")
                     
-                    let teamArray = teamString.componentsSeparatedByString("<option value=")
+                    teamWebString = teamWebString.stringByReplacingOccurrencesOfString("\r", withString: "")
                     
-                    print(teamArray.count)
+                    teamWebString = teamWebString.stringByReplacingOccurrencesOfString("\n", withString: "")
                     
-                    for var team in teamArray {
+                    teamWebString = teamWebString.stringByReplacingOccurrencesOfString("\0", withString: "")
+                    
+                    //print(teamWebString)
+                    
+                    teamDataArray = teamWebString.componentsSeparatedByString("<li class=\"clr\">")
+                    
+                    teamDataArray.removeAtIndex(0)
+                    
+                    for var team in teamDataArray {
                         
                         //Playing with strings
-                        //*****************************ADD SOMETHING TO CLIP WHITE SPACE
+
+                        team.removeRange(team.startIndex..<team.startIndex.advancedBy(65))
                         
-                        team = team.stringByReplacingOccurrencesOfString("</option>", withString: "")
+                        let teamNumberRange = team.startIndex..<team.startIndex.advancedBy(6)
                         
-                        team = team.stringByReplacingOccurrencesOfString("\"", withString: "")
+                        let teamNumber = team[teamNumberRange]
+
+                        team.removeRange(team.startIndex..<team.startIndex.advancedBy(140))
                         
-                        team = team.stringByReplacingOccurrencesOfString(">", withString: " - ")
+                        let range: Range<String.Index> = team.rangeOfString("<")!
+                        
+                        let index: Int = team.startIndex.distanceTo(range.startIndex)
+                        
+                        let teamRange = team.startIndex..<team.startIndex.advancedBy(index)
+                        
+                        team = team[teamRange]
                         
                         print(team)
                         
                         //Saving Strings
-                        let teams = PFObject(className: "Database")
+                        let teams = PFObject(className: "Teams")
                         
-                        teams["Teams"] = team
+                        teams["Team"] = team
+                        
+                        teams["TeamNumber"] = teamNumber
                         
                         teams.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
                     }

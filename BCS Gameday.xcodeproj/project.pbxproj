@@ -49,6 +49,7 @@
 		98F52F601C0FC30B00CB214F /* SignUpTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F5F1C0FC30B00CB214F /* SignUpTeam.swift */; };
 		98F52F621C0FC33600CB214F /* Code Clips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F611C0FC33600CB214F /* Code Clips.swift */; };
 		98F52F641C0FF09F00CB214F /* SignUpLeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F631C0FF09F00CB214F /* SignUpLeagueCell.swift */; };
+		98F52F661C12650A00CB214F /* SignUpTeamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F52F651C12650A00CB214F /* SignUpTeamCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		98F52F5F1C0FC30B00CB214F /* SignUpTeam.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTeam.swift; sourceTree = "<group>"; };
 		98F52F611C0FC33600CB214F /* Code Clips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Code Clips.swift"; sourceTree = "<group>"; };
 		98F52F631C0FF09F00CB214F /* SignUpLeagueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpLeagueCell.swift; sourceTree = "<group>"; };
+		98F52F651C12650A00CB214F /* SignUpTeamCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpTeamCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 				98F52F5D1C0FC2F300CB214F /* SignUpLeague.swift */,
 				98F52F631C0FF09F00CB214F /* SignUpLeagueCell.swift */,
 				98F52F5F1C0FC30B00CB214F /* SignUpTeam.swift */,
+				98F52F651C12650A00CB214F /* SignUpTeamCell.swift */,
 			);
 			name = SignUp;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				9830B39A1BFDA4D8002B4619 /* VIPView.swift in Sources */,
 				9830B38E1BFD8994002B4619 /* ScheduleView.swift in Sources */,
 				98AF92BB1BC37AD700AF2015 /* Test.swift in Sources */,
+				98F52F661C12650A00CB214F /* SignUpTeamCell.swift in Sources */,
 				98AF92B91BC3797900AF2015 /* Schedule.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
 				9830B3941BFDA48C002B4619 /* TeamView.swift in Sources */,
