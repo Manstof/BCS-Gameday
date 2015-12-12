@@ -242,8 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				98AF92BA1BC37AD700AF2015 /* Test.swift */,
-				98AF92B61BC3508100AF2015 /* Teams.swift */,
 				983203E51C00C998000A5DB5 /* Leagues.swift */,
+				98AF92B61BC3508100AF2015 /* Teams.swift */,
 				98AF92B81BC3797900AF2015 /* Schedule.swift */,
 				98F52F611C0FC33600CB214F /* Code Clips.swift */,
 			);

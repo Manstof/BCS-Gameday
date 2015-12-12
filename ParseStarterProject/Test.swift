@@ -15,7 +15,7 @@ class test: UIViewController {
         
         let teams = Teams()
         
-        teams.getTeams()
+        teams.Teams()
         
         print(teams)
         

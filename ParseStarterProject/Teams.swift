@@ -12,7 +12,7 @@ import FBSDKCoreKit
 
 class Teams {
     
-    func getTeams() {
+    func Teams() {
         
         print(PFUser.currentUser())
         
@@ -67,16 +67,41 @@ class Teams {
                         
                         team = team[teamRange]
                         
-                        print(team)
+                        // Then query and compare (check to see if league entries exist)
+                        let query = PFQuery(className: "Teams")
                         
-                        //Saving Strings
-                        let teams = PFObject(className: "Teams")
+                        query.whereKey("Team", equalTo: team)
                         
-                        teams["Team"] = team
-                        
-                        teams["TeamNumber"] = teamNumber
-                        
-                        teams.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
+                        query.findObjectsInBackgroundWithBlock {
+                            
+                            (objects: [AnyObject]?, error: NSError?) in
+                            
+                            if error == nil {
+                                
+                                if (objects!.count > 0){
+                                    
+                                    for object in objects! {
+                                        
+                                        object.deleteInBackground()
+                                        
+                                    }
+                                }
+                                
+                                //Saving to Parse
+                                let Teams = PFObject(className: "Leagues")
+                                
+                                Teams["Team"] = team
+                                
+                                Teams["TeamNumber"] = teamNumber
+                                
+                                Teams.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
+                                
+                            } else {
+                                
+                                print("error")
+                         
+                            }
+                        }
                     }
                     
                 } else {

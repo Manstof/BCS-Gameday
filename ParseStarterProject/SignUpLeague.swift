@@ -14,9 +14,9 @@ class SignUpLeague: PFQueryTableViewController {
     
     var activityIndicator = UIActivityIndicatorView()
     
-    var leagueName = String()
+    var leagueName = [String]()
 
-    var leagueNumber = String()
+    var leagueNumber = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +32,7 @@ class SignUpLeague: PFQueryTableViewController {
         let query = PFQuery(className: "Leagues")
         
         query.orderByAscending("League")
-        
-        print(query)
-        
+
         return query
         
     }
@@ -45,10 +43,12 @@ class SignUpLeague: PFQueryTableViewController {
         
         cell.titleLabel.text = object?.objectForKey("League") as? String
         
-        leagueName = cell.titleLabel.text!
+        print(leagueName)
         
-        leagueNumber = object?.objectForKey("LeagueNumber") as! String
-
+        leagueName.append(cell.titleLabel.text!)
+        
+        leagueNumber.append(object?.objectForKey("LeagueNumber") as! String)
+        
         return cell
     }
     
@@ -72,11 +72,17 @@ class SignUpLeague: PFQueryTableViewController {
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
-        //HERE WE GO
         //Save League
-        PFUser.currentUser()?["league"] = leagueName
         
-        PFUser.currentUser()?["leagueNumber"] = leagueNumber
+        print(indexPath.row)
+        
+        PFUser.currentUser()?["league"] = leagueName[indexPath.row]
+        
+        print(leagueName[indexPath.row])
+        
+        PFUser.currentUser()?["leagueNumber"] = leagueNumber[indexPath.row]
+        
+        print(leagueNumber[indexPath.row])
         
         //Save all data
         PFUser.currentUser()?.save()
