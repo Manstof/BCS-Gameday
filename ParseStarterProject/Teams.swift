@@ -14,8 +14,32 @@ class Teams {
     
     func Teams() {
         
-        print(PFUser.currentUser())
+        // Then query and compare (check to see if league entries exist)
+        let query = PFQuery(className: "Teams")
         
+        query.findObjectsInBackgroundWithBlock {
+            
+            (objects: [AnyObject]?, error: NSError?) in
+            
+            if error == nil {
+                
+                if (objects!.count > 0) {
+                    //if let objects = objects as? [PFObject] {
+                    
+                    for object in objects! {
+                        
+                        object.deleteInBackground()
+                        
+                    }
+                }
+                
+            } else {
+                
+                print("error")
+            }
+        }
+        
+        //To the internet!  Here we will hope the beach city sports site is not down!
         let leagueNumber = PFUser.currentUser()!["leagueNumber"] as? String
         
         let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/\(leagueNumber!)/teams")
@@ -67,41 +91,15 @@ class Teams {
                         
                         team = team[teamRange]
                         
-                        // Then query and compare (check to see if league entries exist)
-                        let query = PFQuery(className: "Teams")
+                        //Saving to Parse
+                        let Teams = PFObject(className: "Teams")
                         
-                        query.whereKey("Team", equalTo: team)
+                        Teams["Team"] = team
                         
-                        query.findObjectsInBackgroundWithBlock {
-                            
-                            (objects: [AnyObject]?, error: NSError?) in
-                            
-                            if error == nil {
-                                
-                                if (objects!.count > 0){
-                                    
-                                    for object in objects! {
-                                        
-                                        object.deleteInBackground()
-                                        
-                                    }
-                                }
-                                
-                                //Saving to Parse
-                                let Teams = PFObject(className: "Leagues")
-                                
-                                Teams["Team"] = team
-                                
-                                Teams["TeamNumber"] = teamNumber
-                                
-                                Teams.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
-                                
-                            } else {
-                                
-                                print("error")
-                         
-                            }
-                        }
+                        Teams["TeamNumber"] = teamNumber
+                        
+                        Teams.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
+                        
                     }
                     
                 } else {

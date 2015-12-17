@@ -7,6 +7,45 @@
 //
 
 import Foundation
+/*  Animating username and password fields in
+
+@IBOutlet weak var centerAlignUsername: NSLayoutConstraint!
+
+@IBOutlet weak var centerAlignPassword: NSLayoutConstraint!
+
+override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    centerAlignUsername.constant -= view.bounds.width
+    
+    centerAlignPassword.constant -= view.bounds.width
+    
+}
+
+override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    UIView.animateWithDuration(0.5, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
+        
+        self.centerAlignUsername.constant += self.view.bounds.width
+        
+        self.view.layoutIfNeeded()
+        
+        }, completion: nil)
+    
+    UIView.animateWithDuration(0.5, delay: 0.3, options: .CurveEaseIn, animations: {
+        
+        self.centerAlignPassword.constant += self.view.bounds.width
+        
+        self.view.layoutIfNeeded()
+        
+        }, completion: nil)
+}
+*/
+
+
+
+
 
 /*
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

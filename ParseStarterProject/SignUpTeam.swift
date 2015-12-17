@@ -20,6 +20,13 @@ class SignUpTeam: PFQueryTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+
+        super.viewWillAppear(true)
         
         let Update = Teams()
         
@@ -29,11 +36,11 @@ class SignUpTeam: PFQueryTableViewController {
     
     override func queryForTable() -> PFQuery {
         
+
+        
         let query = PFQuery(className: "Teams")
         
         query.orderByAscending("Team")
-        
-        print(query)
         
         return query
         
@@ -50,6 +57,7 @@ class SignUpTeam: PFQueryTableViewController {
         teamNumber = object?.objectForKey("TeamNumber") as! String
         
         return cell
+        
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -72,7 +80,6 @@ class SignUpTeam: PFQueryTableViewController {
         
         UIApplication.sharedApplication().beginIgnoringInteractionEvents()
         
-        //HERE WE GO
         //Save League
         PFUser.currentUser()?["team"] = teamName
         

@@ -16,13 +16,11 @@ class LoginView: UIViewController {
     
     @IBOutlet var password: UITextField!
     
-    @IBOutlet weak var centerAlignUsername: NSLayoutConstraint!
-    
-    @IBOutlet weak var centerAlignPassword: NSLayoutConstraint!
-    
     @IBOutlet var signupButton: UIButton!
     
     @IBOutlet var registeredText: UILabel!
+    
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     
     @IBOutlet var loginButton: UIButton!
     
@@ -32,6 +30,7 @@ class LoginView: UIViewController {
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    //Configure Colors and Things
     let backgroundColor = UIColor(
         red: 233/255.0,
         green: 150/255.0,
@@ -55,31 +54,11 @@ class LoginView: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        centerAlignUsername.constant -= view.bounds.width
-        
-        centerAlignPassword.constant -= view.bounds.width
     
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        UIView.animateWithDuration(0.5, delay: 0.0, options:UIViewAnimationOptions.CurveEaseIn, animations: {
-            
-                self.centerAlignUsername.constant += self.view.bounds.width
-            
-                self.view.layoutIfNeeded()
-            
-            }, completion: nil)
-        
-        UIView.animateWithDuration(0.5, delay: 0.3, options: .CurveEaseIn, animations: {
-            
-            self.centerAlignPassword.constant += self.view.bounds.width
-            
-            self.view.layoutIfNeeded()
-            
-            }, completion: nil)
         
         /*
         //Logout User Code
@@ -113,8 +92,21 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Setbackground Color
+        //Configure Colors
+        //Set Background Color
         self.view.backgroundColor = backgroundColor
+        
+        //Set Border Color
+        username.layer.borderWidth = 1
+        password.layer.borderWidth = 1
+        username.layer.borderColor = backgroundColor.CGColor
+        password.layer.borderColor = backgroundColor.CGColor
+        
+        //Set widths
+        let screenWidth = UIScreen.mainScreen().bounds.width
+        username.frame.size.width = screenWidth/2
+        password.frame.size.width = screenWidth/2
+        forgotPasswordButton.frame.size.width = screenWidth/2
         
     }
     

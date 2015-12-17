@@ -18,6 +18,8 @@ class SignUpLeague: PFQueryTableViewController {
 
     var leagueNumber = [String]()
     
+    var counter = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +34,9 @@ class SignUpLeague: PFQueryTableViewController {
         let query = PFQuery(className: "Leagues")
         
         query.orderByAscending("League")
-
+        
+        print("Display")
+        
         return query
         
     }
@@ -42,8 +46,6 @@ class SignUpLeague: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SignUpLeagueCell
         
         cell.titleLabel.text = object?.objectForKey("League") as? String
-        
-        print(leagueName)
         
         leagueName.append(cell.titleLabel.text!)
         
@@ -74,15 +76,9 @@ class SignUpLeague: PFQueryTableViewController {
         
         //Save League
         
-        print(indexPath.row)
-        
         PFUser.currentUser()?["league"] = leagueName[indexPath.row]
         
-        print(leagueName[indexPath.row])
-        
         PFUser.currentUser()?["leagueNumber"] = leagueNumber[indexPath.row]
-        
-        print(leagueNumber[indexPath.row])
         
         //Save all data
         PFUser.currentUser()?.save()
