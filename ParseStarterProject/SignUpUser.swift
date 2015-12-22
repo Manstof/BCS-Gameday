@@ -11,11 +11,13 @@ import Parse
 
 var findTeam = Teams()
 
-class SignUpUser: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var userImage: UIImageView!
-
-    @IBOutlet weak var username: UITextField!
+    
+    @IBOutlet var name: UITextField!
+    
+    @IBOutlet var email: UITextField!
     
     var imageSet = false
     
@@ -27,16 +29,24 @@ class SignUpUser: UIViewController, UINavigationControllerDelegate, UIImagePicke
     
     var userTeamNumber = String()
     
+    var keyboardShowing = false
+    
     //********************
     //Set background color
-    let backgroundColor = UIColor(
-        red: 233/255.0,
-        green: 150/255.0,
-        blue: 122/255.0,
+    let orangeColor = UIColor(
+        red: 255/255.0,
+        green: 153/255.0,
+        blue: 0/255.0,
         alpha: 1.0)
     
-    //******
-    //Alerts
+    let lightBlueColor = UIColor(
+        red: 51/255.0,
+        green: 153/255.0,
+        blue: 255/255.0,
+        alpha: 1.0)
+    
+    //**************
+    //Display Alerts
     func displayAlert(title: String, message: String) {
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -55,11 +65,6 @@ class SignUpUser: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
         //Animation for user image
         self.userImage.frame = CGRectMake(0, 0, 0, 0)
-        
-        //self.userImage.alpha = 0
-        
-        //Animation for signup
-        //signUp.alpha = 0
         
     }
     
@@ -102,8 +107,68 @@ class SignUpUser: UIViewController, UINavigationControllerDelegate, UIImagePicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = backgroundColor
+        //keyboard Things
         
+        name.delegate=self
+        
+        email.delegate=self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        
+        //Configure Pretty Things
+        //Set Background Color
+        self.view.backgroundColor = orangeColor
+        
+        //Border Width
+        name.layer.borderWidth = 1
+        
+        email.layer.borderWidth = 1
+        
+        //Border Color
+        name.layer.borderColor = orangeColor.CGColor
+        
+        email.layer.borderColor = orangeColor.CGColor
+        
+    }
+    
+    //************************
+    //Keyboard Things
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            
+            if keyboardShowing != true {
+                
+                self.view.frame.origin.y -= keyboardSize.height
+                
+                keyboardShowing = true
+                
+            }
+            
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        keyboardShowing = false
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            
+            self.view.frame.origin.y += keyboardSize.height
+            
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        name.resignFirstResponder()
+        
+        email.resignFirstResponder()
+        
+        return true;
     }
     
     //*********************
@@ -151,14 +216,13 @@ class SignUpUser: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
     }
     
-    
     @IBAction func continueToLeague(sender: AnyObject) {
             
         if imageSet == false {
             
             self.displayAlert("Failed Signup", message: "Please choose a picture")
             
-        } else if username.text == "" {
+        } else if name.text == "" {
                 
             self.displayAlert("Failed Signup", message: "Please create a username")
             
@@ -193,9 +257,9 @@ class SignUpUser: UIViewController, UINavigationControllerDelegate, UIImagePicke
         
             //*************************
             //Save Team Name and Number
-            let Name = username.text
+            let nameString = name.text
             
-            PFUser.currentUser()?["username"] = Name
+            PFUser.currentUser()?["username"] = nameString
             
             //Save all data
             PFUser.currentUser()?.save()

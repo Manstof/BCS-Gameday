@@ -41,9 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Orange App Color
         let barColor = UIColor(
-            red: 233/255.0,
-            green: 150/255.0,
-            blue: 122/255.0,
+            red: 255/255.0,
+            green: 153/255.0,
+            blue: 0/255.0,
             alpha: 1.0)
         
         //Declaration

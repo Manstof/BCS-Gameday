@@ -95,6 +95,8 @@ class SignUpTeam: PFQueryTableViewController {
         
         performSegueWithIdentifier("teamToMenu", sender: self)
         
+        
+        
     }
     
     override func didReceiveMemoryWarning() {

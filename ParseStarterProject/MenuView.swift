@@ -17,10 +17,10 @@ class MenuView: UITableViewController {
     
     var menuSegue = String()
     
-    let backgroundColor = UIColor(
-        red: 233/255.0,
-        green: 150/255.0,
-        blue: 122/255.0,
+    let lightBlueColor = UIColor(
+        red: 51/255.0,
+        green: 153/255.0,
+        blue: 255/255.0,
         alpha: 1.0)
     
     let backgroundColorAlt = UIColor(
@@ -39,7 +39,7 @@ class MenuView: UITableViewController {
         super.viewDidLoad()
 
         //Setbackground Color
-        self.tableView.backgroundColor = backgroundColor
+        self.tableView.backgroundColor = lightBlueColor
     
         //Get team name
         if let teamName = PFUser.currentUser()!["teamName"] as? String {
@@ -95,7 +95,7 @@ class MenuView: UITableViewController {
         //Text
         cell.textLabel?.text = MenuViewItems[indexPath.row]
         
-        cell.imageView?.image = UIImage(named: MenuViewItems[indexPath.row])
+        //cell.imageView?.image = UIImage(named: MenuViewItems[indexPath.row])
             
         return cell
     

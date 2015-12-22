@@ -8,9 +8,7 @@ import UIKit
 import Parse
 import FBSDKCoreKit
 
-class LoginView: UIViewController {
-    
-    //View Controller Things
+class LoginView: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var username: UITextField!
     
@@ -18,23 +16,33 @@ class LoginView: UIViewController {
     
     @IBOutlet var signupButton: UIButton!
     
-    @IBOutlet var registeredText: UILabel!
-    
-    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet var forgotPasswordButton: UIButton!
     
     @IBOutlet var loginButton: UIButton!
+    
+    @IBOutlet var facebookF: UIButton!
+    
+    @IBOutlet var loginFacebook: UIButton!
     
     var imageSet = false
     
     var signupActive = true
     
+    var keyboardShowing = false
+    
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     //Configure Colors and Things
-    let backgroundColor = UIColor(
-        red: 233/255.0,
-        green: 150/255.0,
-        blue: 122/255.0,
+    let orangeColor = UIColor(
+        red: 255/255.0,
+        green: 153/255.0,
+        blue: 0/255.0,
+        alpha: 1.0)
+    
+    let lightBlueColor = UIColor(
+        red: 51/255.0,
+        green: 153/255.0,
+        blue: 255/255.0,
         alpha: 1.0)
     
     //**************
@@ -54,6 +62,7 @@ class LoginView: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+
     
     }
     
@@ -92,27 +101,93 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Configure Colors
+        //keyboard Things
+        
+        username.delegate=self
+        
+        password.delegate=self
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    
+        //Configure Pretty Things
         //Set Background Color
-        self.view.backgroundColor = backgroundColor
-        
-        //Set Border Color
+        self.view.backgroundColor = orangeColor
+
+        //Border Width
         username.layer.borderWidth = 1
-        password.layer.borderWidth = 1
-        username.layer.borderColor = backgroundColor.CGColor
-        password.layer.borderColor = backgroundColor.CGColor
         
-        //Set widths
-        let screenWidth = UIScreen.mainScreen().bounds.width
-        username.frame.size.width = screenWidth/2
-        password.frame.size.width = screenWidth/2
-        forgotPasswordButton.frame.size.width = screenWidth/2
+        password.layer.borderWidth = 1
+        
+        loginButton.layer.borderWidth = 1
+        
+        forgotPasswordButton.layer.borderWidth = 1
+        
+        signupButton.layer.borderWidth = 1
+        
+        //facebookF.layer.borderWidth = 1/2
+        
+        //loginFacebook.layer.borderWidth = 1/2
+        
+        //Border Color
+        username.layer.borderColor = orangeColor.CGColor
+        
+        password.layer.borderColor = orangeColor.CGColor
+        
+        loginButton.layer.borderColor = orangeColor.CGColor
+        
+        forgotPasswordButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        signupButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        //facebookF.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        //loginFacebook.layer.borderColor = UIColor.whiteColor().CGColor
         
     }
     
     //************************
+    //Keyboard Things
+    func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+            
+            if keyboardShowing != true {
+            
+                self.view.frame.origin.y -= keyboardSize.height
+                
+                keyboardShowing = true
+        
+            }
+            
+        }
+        
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        
+        keyboardShowing = false
+    
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+        
+            self.view.frame.origin.y += keyboardSize.height
+    
+        }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        username.resignFirstResponder()
+        
+        password.resignFirstResponder()
+        
+        return true;
+    }
+    
+    //************************
     //Start Signup and Sign in
-    @IBAction func signUpButton(sender: AnyObject) {
+    @IBAction func loginButton(sender: AnyObject) {
         
         if username.text == "" || password.text == "" {
             
@@ -176,7 +251,7 @@ class LoginView: UIViewController {
                         
                         // Logged In!
                         
-                        self.performSegueWithIdentifier("LoginToReveal", sender: self)
+                        self.performSegueWithIdentifier("loginToReveal", sender: self)
                         
                         
                     } else {
@@ -195,29 +270,10 @@ class LoginView: UIViewController {
         }
     }
     
-    @IBAction func logInButton(sender: AnyObject) {
+    @IBAction func signupButton(sender: AnyObject) {
     
-        if signupActive == true {
-            
-            signupButton.setTitle("Log In", forState: UIControlState.Normal)
-            
-            registeredText.text = "Not registered?"
-            
-            loginButton.setTitle("Sign Up", forState: UIControlState.Normal)
-            
-            signupActive = false
-            
-        } else {
-            
-            signupButton.setTitle("Sign Up", forState: UIControlState.Normal)
-            
-            registeredText.text = "Already registered?"
-            
-            loginButton.setTitle("Login", forState: UIControlState.Normal)
-            
-            signupActive = true
-            
-        }
+        self.performSegueWithIdentifier("showSigninScreen", sender: self)
+        
     }
     
     //**************************
