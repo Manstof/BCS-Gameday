@@ -10,9 +10,9 @@ import FBSDKCoreKit
 
 class LoginView: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet var username: UITextField!
+    @IBOutlet var usernameField: UITextField!
     
-    @IBOutlet var password: UITextField!
+    @IBOutlet var passwordField: UITextField!
     
     @IBOutlet var signupButton: UIButton!
     
@@ -26,7 +26,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     
     var imageSet = false
     
-    var signupActive = true
+    var signupActive = false
     
     var keyboardShowing = false
     
@@ -69,43 +69,16 @@ class LoginView: UIViewController, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        /*
-        //Logout User Code
-        PFUser.logOutInBackgroundWithBlock() {
-            
-            (error: NSError?) -> Void in
-            
-            if error != nil {
-                
-                print("logout fail")
-                
-                print(error)
-                
-            } else {
-                
-                print("logout success")
-                
-        print(PFUser.currentUser())
-        
-            }
-        }
-        
-        //Skip if use is logged in ***************************CURRENTLY NOT WORKING
-        if PFUser.currentUser() != nil {
-            
-            self.performSegueWithIdentifier("showMasterView", sender: self)
-        
-        }*/
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //keyboard Things
+        //Keyboard Things
+        usernameField.delegate=self
         
-        username.delegate=self
-        
-        password.delegate=self
+        passwordField.delegate=self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         
@@ -116,9 +89,9 @@ class LoginView: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = orangeColor
 
         //Border Width
-        username.layer.borderWidth = 1
+        usernameField.layer.borderWidth = 1
         
-        password.layer.borderWidth = 1
+        passwordField.layer.borderWidth = 1
         
         loginButton.layer.borderWidth = 1
         
@@ -126,14 +99,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
         
         signupButton.layer.borderWidth = 1
         
-        //facebookF.layer.borderWidth = 1/2
-        
-        //loginFacebook.layer.borderWidth = 1/2
-        
         //Border Color
-        username.layer.borderColor = orangeColor.CGColor
+        usernameField.layer.borderColor = orangeColor.CGColor
         
-        password.layer.borderColor = orangeColor.CGColor
+        passwordField.layer.borderColor = orangeColor.CGColor
         
         loginButton.layer.borderColor = orangeColor.CGColor
         
@@ -141,14 +110,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
         
         signupButton.layer.borderColor = UIColor.whiteColor().CGColor
         
-        //facebookF.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        //loginFacebook.layer.borderColor = UIColor.whiteColor().CGColor
-        
     }
     
-    //************************
-    //Keyboard Things
+    //********************
+    //Moar Keyboard Things
     func keyboardWillShow(notification: NSNotification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -160,9 +125,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
                 keyboardShowing = true
         
             }
-            
         }
-        
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -178,9 +141,9 @@ class LoginView: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        username.resignFirstResponder()
+        usernameField.resignFirstResponder()
         
-        password.resignFirstResponder()
+        passwordField.resignFirstResponder()
         
         return true;
     }
@@ -189,7 +152,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     //Start Signup and Sign in
     @IBAction func loginButton(sender: AnyObject) {
         
-        if username.text == "" || password.text == "" {
+        if usernameField.text == "" || passwordField.text == "" {
             
             displayAlert("Error in form", message: "Please enter a username and password")
             
@@ -214,8 +177,10 @@ class LoginView: UIViewController, UITextFieldDelegate {
             if signupActive == true {
                 
                 let user = PFUser()
-                user.username = username.text
-                user.password = password.text
+                
+                user.username = usernameField.text
+                
+                user.password = passwordField.text
                 
                 user.signUpInBackgroundWithBlock({ (success, error) -> Void in
                     
@@ -241,7 +206,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
                 
             } else {
                 
-                PFUser.logInWithUsernameInBackground(username.text!, password: password.text!, block: { (user, error) -> Void in
+                PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!, block: { (user, error) -> Void in
                     
                     self.activityIndicator.stopAnimating()
                     
@@ -262,7 +227,8 @@ class LoginView: UIViewController, UITextFieldDelegate {
                             
                         }
                         
-                        self.displayAlert("Failed Login", message: errorMessage)
+                        self.displayAlert("Failed Login", message: "Please check username and password")
+                        //self.displayAlert("Failed Login", message: errorMessage)
                         
                     }
                 })

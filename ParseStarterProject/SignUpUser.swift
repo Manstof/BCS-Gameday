@@ -14,22 +14,18 @@ var findTeam = Teams()
 class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBOutlet var userImage: UIImageView!
+
+    @IBOutlet var usernameField: UITextField!
     
-    @IBOutlet var name: UITextField!
+    @IBOutlet var passwordField: UITextField!
     
-    @IBOutlet var email: UITextField!
+    @IBOutlet var emailField: UITextField!
     
     var imageSet = false
     
-    var activityIndicator = UIActivityIndicatorView()
-    
-    var teamArray = [String]()
-    
-    var userTeam = String()
-    
-    var userTeamNumber = String()
-    
     var keyboardShowing = false
+    
+    var activityIndicator = UIActivityIndicatorView()
     
     //********************
     //Set background color
@@ -107,11 +103,12 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //keyboard Things
+        //Keyboard Things
+        usernameField.delegate = self
         
-        name.delegate=self
+        passwordField.delegate = self
         
-        email.delegate=self
+        emailField.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         
@@ -122,18 +119,22 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
         self.view.backgroundColor = orangeColor
         
         //Border Width
-        name.layer.borderWidth = 1
+        usernameField.layer.borderWidth = 1
         
-        email.layer.borderWidth = 1
+        passwordField.layer.borderWidth = 1
+        
+        emailField.layer.borderWidth = 1
         
         //Border Color
-        name.layer.borderColor = orangeColor.CGColor
+        usernameField.layer.borderColor = orangeColor.CGColor
         
-        email.layer.borderColor = orangeColor.CGColor
+        passwordField.layer.borderColor = orangeColor.CGColor
+        
+        emailField.layer.borderColor = orangeColor.CGColor
         
     }
     
-    //************************
+    //***************
     //Keyboard Things
     func keyboardWillShow(notification: NSNotification) {
         
@@ -146,9 +147,7 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
                 keyboardShowing = true
                 
             }
-            
         }
-        
     }
     
     func keyboardWillHide(notification: NSNotification) {
@@ -164,9 +163,11 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
-        name.resignFirstResponder()
+        usernameField.resignFirstResponder()
         
-        email.resignFirstResponder()
+        passwordField.resignFirstResponder()
+        
+        emailField.resignFirstResponder()
         
         return true;
     }
@@ -222,9 +223,23 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
             
             self.displayAlert("Failed Signup", message: "Please choose a picture")
             
-        } else if name.text == "" {
+        } else if usernameField.text == "" {
                 
             self.displayAlert("Failed Signup", message: "Please create a username")
+            
+        } else if passwordField.text == "" {
+            
+            self.displayAlert("Failed Signup", message: "Please create a password")
+            
+            if ((passwordField.text?.containsString(" ")) != nil) {
+                
+                self.displayAlert("Failed Signup", message: "Password cannot contain a space")
+                
+            }
+        
+        } else if emailField.text == "" {
+        
+            self.displayAlert("Failed Signup", message: "Please enter an email")
             
         } else {
         
@@ -246,7 +261,6 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
             
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
 
-
             //*****************************
             //Save chosen image for profile
             let imageData = UIImageJPEGRepresentation(userImage.image!, 0.0)
@@ -256,10 +270,18 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
             PFUser.currentUser()?["image"] = imageFile
         
             //*************************
-            //Save Team Name and Number
-            let nameString = name.text
+            //Save Information to Parse
+            let username = usernameField.text
             
-            PFUser.currentUser()?["username"] = nameString
+            let password = passwordField.text
+            
+            let email = emailField.text
+            
+            PFUser.currentUser()?["username"] = username
+            
+            PFUser.currentUser()?["password"] = password
+            
+            PFUser.currentUser()?["email"] = email
             
             //Save all data
             PFUser.currentUser()?.save()

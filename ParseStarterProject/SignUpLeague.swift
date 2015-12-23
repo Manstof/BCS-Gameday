@@ -27,6 +27,13 @@ class SignUpLeague: PFQueryTableViewController {
         
         Update.leagues()
         
+        //Configure Colors for Table
+        tableView.backgroundColor = UIColor.orangeColor()
+        
+        tableView.tableFooterView = UIView(frame:CGRectZero)
+        
+        tableView.separatorColor = UIColor.whiteColor()
+        
     }
     
     override func queryForTable() -> PFQuery {
@@ -47,6 +54,12 @@ class SignUpLeague: PFQueryTableViewController {
         
         cell.titleLabel.text = object?.objectForKey("League") as? String
         
+        //Configure Cell Colors
+        cell.backgroundColor = UIColor.orangeColor()
+        
+        cell.textLabel?.textColor = UIColor.whiteColor()
+        
+        //Save
         leagueName.append(cell.titleLabel.text!)
         
         leagueNumber.append(object?.objectForKey("LeagueNumber") as! String)

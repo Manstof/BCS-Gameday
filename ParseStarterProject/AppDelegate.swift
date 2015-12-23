@@ -40,11 +40,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Set navigation bar colors
         
         //Orange App Color
-        let barColor = UIColor(
+        let orangeColor = UIColor(
             red: 255/255.0,
             green: 153/255.0,
             blue: 0/255.0,
             alpha: 1.0)
+        
+        //Blue App Color
+        let lightBlueColor = UIColor(
+            red: 51/255.0,
+            green: 153/255.0,
+            blue: 255/255.0,
+            alpha: 1.0)
+        
+        let barColor = orangeColor
         
         //Declaration
         let navigationBarAppearace = UINavigationBar.appearance()
