@@ -33,6 +33,7 @@
 		9830B39E1BFDA6FD002B4619 /* StandingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */; };
 		9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9830B39F1BFDA708002B4619 /* EventsCell.swift */; };
 		983203E61C00C998000A5DB5 /* Leagues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983203E51C00C998000A5DB5 /* Leagues.swift */; };
+		9834F2591C2DED4700775909 /* ChangeTeamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9834F2581C2DED4700775909 /* ChangeTeamView.swift */; };
 		983616D71BFAEF910010C821 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 983616D61BFAEF910010C821 /* SWRevealViewController.m */; };
 		983616DD1BFB9E7B0010C821 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983616DC1BFB9E7B0010C821 /* MenuView.swift */; };
 		9839960C1C2A1A9800134497 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9839960B1C2A1A9800134497 /* LogoutView.swift */; };
@@ -85,6 +86,7 @@
 		9830B39D1BFDA6FD002B4619 /* StandingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsCell.swift; sourceTree = "<group>"; };
 		9830B39F1BFDA708002B4619 /* EventsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsCell.swift; sourceTree = "<group>"; };
 		983203E51C00C998000A5DB5 /* Leagues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Leagues.swift; sourceTree = "<group>"; };
+		9834F2581C2DED4700775909 /* ChangeTeamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeTeamView.swift; sourceTree = "<group>"; };
 		983616D51BFAEF910010C821 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		983616D61BFAEF910010C821 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		983616DC1BFB9E7B0010C821 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				9830B3971BFDA4BF002B4619 /* EventsView.swift */,
 				9830B39F1BFDA708002B4619 /* EventsCell.swift */,
 				9830B3991BFDA4D8002B4619 /* VIPView.swift */,
+				9834F2581C2DED4700775909 /* ChangeTeamView.swift */,
 				9839960B1C2A1A9800134497 /* LogoutView.swift */,
 			);
 			name = Core;
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9830B3A01BFDA708002B4619 /* EventsCell.swift in Sources */,
+				9834F2591C2DED4700775909 /* ChangeTeamView.swift in Sources */,
 				98F52F601C0FC30B00CB214F /* SignUpTeam.swift in Sources */,
 				983203E61C00C998000A5DB5 /* Leagues.swift in Sources */,
 				98F52F5E1C0FC2F300CB214F /* SignUpLeague.swift in Sources */,

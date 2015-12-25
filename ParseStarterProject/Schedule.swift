@@ -16,7 +16,14 @@ class Schedule {
     
     func getSchedule() {
         
-        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/66872/schedule?gameState=&teamId=291781&locationId=")
+        //To the internet!  Here we will hope the beach city sports site is not down!
+        let leagueNumber = PFUser.currentUser()!["LeagueNumber"] as? String
+        
+        let teamNumber = PFUser.currentUser()!["TeamNumber"] as? String
+        
+        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/\(leagueNumber!)/schedule?gameState=&teamId=\(teamNumber!)&locationId=")
+        
+        print(attemptedUrl)
         
         if let url = attemptedUrl {
             

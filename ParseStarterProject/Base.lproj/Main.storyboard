@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CB0-cy-kqs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jEJ-AZ-uhk">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -12,7 +12,7 @@
         <!--Beach City Sports-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginView" customModule="BCS_Gameday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginView" customModule="BCS_Gameday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -46,18 +46,7 @@
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUZ-7e-9OS">
-                                <rect key="frame" x="-1" y="520" width="301" height="80"/>
-                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="lra-m1-0ts"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <state key="normal" title="Forgot Password?">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5c-pW-dvq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T5c-pW-dvq">
                                 <rect key="frame" x="300" y="520" width="301" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -96,7 +85,7 @@
                                     <action selector="FBSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiU-Wl-eMR"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beachFootballVector.png" translatesAutoresizingMaskIntoConstraints="NO" id="nVQ-1c-Ibg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="beachFootballVector.png" translatesAutoresizingMaskIntoConstraints="NO" id="nVQ-1c-Ibg">
                                 <rect key="frame" x="188" y="84" width="224" height="236"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nVQ-1c-Ibg" secondAttribute="height" multiplier="18:19" id="j0R-h5-IjG"/>
@@ -112,6 +101,17 @@
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                             </textField>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUZ-7e-9OS">
+                                <rect key="frame" x="-1" y="520" width="301" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="lra-m1-0ts"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
+                                <state key="normal" title="Forgot Password?">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -269,7 +269,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZA-Ik-h9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165" y="-1392"/>
+            <point key="canvasLocation" x="1977" y="-1392"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="7CD-BF-aNp">
@@ -284,13 +284,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EbI-og-aCc">
-                                <rect key="frame" x="0.0" y="520" width="600" height="80"/>
+                                <rect key="frame" x="300" y="520" width="300" height="80"/>
                                 <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="N0O-9V-lMC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <state key="normal" title="Continue to Select League -&gt;">
+                                <state key="normal" title="Select League">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -308,7 +308,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newUser.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQi-AR-SNr">
-                                <rect key="frame" x="212" y="84" width="176" height="176"/>
+                                <rect key="frame" x="190" y="40" width="220" height="220"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wQi-AR-SNr" secondAttribute="height" multiplier="1:1" id="wJ9-U9-2od"/>
                                 </constraints>
@@ -344,19 +344,39 @@
                                     <action selector="chooseImage:" destination="6i5-aJ-vvc" eventType="touchUpInside" id="c3v-HD-afF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FO4-Ha-wOq">
+                                <rect key="frame" x="0.0" y="520" width="300" height="80"/>
+                                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Bv4-qk-iW4"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="irt-Rz-aCs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
+                                <state key="normal" title="Back to Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToLogin:" destination="6i5-aJ-vvc" eventType="touchUpInside" id="0a6-3p-K8j"/>
+                                    <action selector="continueToLeague:" destination="6i5-aJ-vvc" eventType="touchUpInside" id="uTZ-aI-0f2"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backToLogin" id="lNx-Z6-GbY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="FO4-Ha-wOq" firstAttribute="leading" secondItem="n2T-Bg-tX5" secondAttribute="leadingMargin" constant="-20" id="3OC-9H-QfL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xRl-Ls-Fm6" secondAttribute="trailing" constant="-20" id="5c9-E6-Nb4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="MKN-T0-h2Q" secondAttribute="trailing" constant="-20" id="6rK-Du-saV"/>
                             <constraint firstItem="MKN-T0-h2Q" firstAttribute="leading" secondItem="n2T-Bg-tX5" secondAttribute="leadingMargin" constant="-20" id="7Rf-Yd-bUE"/>
-                            <constraint firstItem="EbI-og-aCc" firstAttribute="leading" secondItem="n2T-Bg-tX5" secondAttribute="leadingMargin" constant="-20" id="BB6-a9-V8u"/>
                             <constraint firstItem="V5j-Hv-BUi" firstAttribute="top" secondItem="xRl-Ls-Fm6" secondAttribute="bottom" id="COC-KJ-fLn"/>
                             <constraint firstItem="aP7-Jk-r8X" firstAttribute="leading" secondItem="n2T-Bg-tX5" secondAttribute="leadingMargin" constant="-20" id="GtM-GK-5ID"/>
                             <constraint firstItem="xRl-Ls-Fm6" firstAttribute="top" secondItem="MKN-T0-h2Q" secondAttribute="bottom" id="ITk-I4-pcN"/>
+                            <constraint firstItem="FO4-Ha-wOq" firstAttribute="width" secondItem="EbI-og-aCc" secondAttribute="width" id="KaU-AL-Yq2"/>
                             <constraint firstItem="wQi-AR-SNr" firstAttribute="centerX" secondItem="n2T-Bg-tX5" secondAttribute="centerX" id="N7g-Bc-DST"/>
+                            <constraint firstItem="EbI-og-aCc" firstAttribute="leading" secondItem="FO4-Ha-wOq" secondAttribute="trailing" id="NJJ-J4-rRP"/>
                             <constraint firstItem="MKN-T0-h2Q" firstAttribute="centerX" secondItem="n2T-Bg-tX5" secondAttribute="centerX" id="PLZ-ZV-ir7"/>
                             <constraint firstItem="aP7-Jk-r8X" firstAttribute="centerX" secondItem="n2T-Bg-tX5" secondAttribute="centerX" id="QDj-1Q-aTz"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="FO4-Ha-wOq" secondAttribute="bottom" id="QOO-Vq-3ZJ"/>
                             <constraint firstItem="aP7-Jk-r8X" firstAttribute="top" secondItem="V5j-Hv-BUi" secondAttribute="bottom" id="XOV-5H-Vjk"/>
                             <constraint firstItem="wQi-AR-SNr" firstAttribute="top" secondItem="obn-Iu-QD1" secondAttribute="bottom" constant="20" id="hGr-ka-YaV"/>
                             <constraint firstItem="V5j-Hv-BUi" firstAttribute="leading" secondItem="n2T-Bg-tX5" secondAttribute="leadingMargin" constant="-20" id="qNL-Y1-KPh"/>
@@ -373,9 +393,11 @@
                     <connections>
                         <outlet property="emailField" destination="aP7-Jk-r8X" id="OCZ-if-JYJ"/>
                         <outlet property="passwordField" destination="V5j-Hv-BUi" id="WL5-vb-5u9"/>
+                        <outlet property="toLeague" destination="EbI-og-aCc" id="7HN-Ey-9d5"/>
+                        <outlet property="toLogin" destination="FO4-Ha-wOq" id="FEw-zM-cdr"/>
                         <outlet property="userImage" destination="wQi-AR-SNr" id="oCi-VN-7tS"/>
                         <outlet property="usernameField" destination="xRl-Ls-Fm6" id="yyr-cn-QrL"/>
-                        <segue destination="CB0-cy-kqs" kind="show" identifier="toLeague" id="s9G-3j-4BH"/>
+                        <segue destination="NTA-j3-9s4" kind="show" identifier="toLeague" id="s9G-3j-4BH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEh-o7-cXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -423,7 +445,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="deF-Nk-tPy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="-1392"/>
+            <point key="canvasLocation" x="2653" y="-1392"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="I7d-zl-Coj">
@@ -505,12 +527,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cNt-yx-c9k">
-                                <rect key="frame" x="180" y="124" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="EGe-Q4-eaG"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5E-KD-Ktu">
                                 <rect key="frame" x="276" y="88" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -544,6 +560,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cNt-yx-c9k">
+                                <rect key="frame" x="180" y="137" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="EGe-Q4-eaG"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -685,7 +707,8 @@
                         <segue destination="lr5-ym-eMy" kind="custom" identifier="Standings" customClass="SWRevealViewControllerSeguePushController" id="ANp-4w-MNv"/>
                         <segue destination="lMU-Tu-9zq" kind="custom" identifier="Events" customClass="SWRevealViewControllerSeguePushController" id="rKy-vD-Ysn"/>
                         <segue destination="qbf-Lj-nrR" kind="custom" identifier="VIP" customClass="SWRevealViewControllerSeguePushController" id="fW6-S3-msQ"/>
-                        <segue destination="XSK-Qs-wWz" kind="show" identifier="Logout" customClass="SWRevealViewControllerSeguePushController" id="r6p-ke-WDn"/>
+                        <segue destination="XSK-Qs-wWz" kind="show" identifier="Change Team" customClass="SWRevealViewControllerSeguePushController" id="r6p-ke-WDn"/>
+                        <segue destination="UkA-ZE-Jk5" kind="show" identifier="Logout" customClass="SWRevealViewControllerSeguePushController" id="OrZ-eM-dNj"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2o-aN-0f1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -876,28 +899,10 @@
             </objects>
             <point key="canvasLocation" x="3484" y="3367"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="rzP-Me-FLi">
-            <objects>
-                <navigationController storyboardIdentifier="LoginViewStack" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nKv-Ql-jhC" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IEL-ZB-OS5">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="thu-LP-Wyg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sAy-OD-79l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1001" y="-1406"/>
-        </scene>
-        <!--Logout-->
+        <!--Change Team-->
         <scene sceneID="v1Z-Pe-3vH">
             <objects>
-                <viewController id="x8K-gs-G5q" customClass="LogoutView" customModule="BCS_Gameday" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="x8K-gs-G5q" customClass="ChangTeamView" customModule="BCS_Gameday" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HES-k6-V0U"/>
                         <viewControllerLayoutGuide type="bottom" id="u3v-tA-dRx"/>
@@ -907,7 +912,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Logout" id="T3Y-t0-AgF">
+                    <navigationItem key="navigationItem" title="Change Team" id="T3Y-t0-AgF">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="qUs-RR-rEv"/>
                     </navigationItem>
                     <connections>
@@ -936,6 +941,66 @@
             </objects>
             <point key="canvasLocation" x="3484" y="4107"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yn5-iP-8go">
+            <objects>
+                <navigationController storyboardIdentifier="teamStack" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NTA-j3-9s4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MCD-D2-TKH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CB0-cy-kqs" kind="relationship" relationship="rootViewController" id="m7Y-mj-Gfm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="su4-Dp-LsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1165" y="-1392"/>
+        </scene>
+        <!--Logout-->
+        <scene sceneID="Rfh-qI-Ccx">
+            <objects>
+                <viewController id="WJ7-HH-0CZ" customClass="LogoutView" customModule="BCS_Gameday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kCL-IP-5Ve"/>
+                        <viewControllerLayoutGuide type="bottom" id="qpO-Ol-Ja3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ja-GE-9Ls">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Logout" id="VXb-Kj-D8K">
+                        <barButtonItem key="leftBarButtonItem" image="menu" id="gQq-9j-ezE"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="menuButton" destination="gQq-9j-ezE" id="r5f-i0-X6h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L7P-8e-z8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4297" y="4923"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XOf-NB-vC9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UkA-ZE-Jk5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cks-ib-5QX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="WJ7-HH-0CZ" kind="relationship" relationship="rootViewController" id="XXh-WA-PIw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QqU-di-Rpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3470" y="4923"/>
+        </scene>
     </scenes>
     <resources>
         <image name="beachFootballVector.png" width="245" height="245"/>
@@ -944,7 +1009,7 @@
         <image name="newUser.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sCF-1C-Boe"/>
-        <segue reference="joM-Ci-SCH"/>
+        <segue reference="TSZ-a7-iMd"/>
+        <segue reference="Iii-rC-zmr"/>
     </inferredMetricsTieBreakers>
 </document>

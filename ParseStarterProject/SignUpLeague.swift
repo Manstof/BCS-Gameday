@@ -57,7 +57,7 @@ class SignUpLeague: PFQueryTableViewController {
         cell.textLabel?.numberOfLines = 0
         
         //Configure Cell Colors
-        cell.backgroundColor = UIColor.orangeColor()
+        cell.backgroundColor = UIColor.clearColor()
         
         cell.textLabel?.textColor = UIColor.whiteColor()
         

@@ -29,6 +29,16 @@ class ScheduleView: PFQueryTableViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        
+        super.viewWillAppear(true)
+        
+        let Update = Schedule()
+        
+        Update.getSchedule()
+        
+    }
+    
     override func queryForTable() -> PFQuery {
      
         let query = PFQuery(className: "Date")

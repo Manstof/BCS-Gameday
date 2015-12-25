@@ -11,7 +11,7 @@ import Parse
 
 class MenuView: UITableViewController {
 
-    let MenuViewItems = ["Home", "Team", "Schedule", "Standings", "Events", "VIP", "Logout"]
+    let MenuViewItems = ["Home", "Team", "Schedule", "Standings", "Events", "VIP", "Change Team", "Logout"]
     
     var team = String()
     
@@ -40,6 +40,10 @@ class MenuView: UITableViewController {
 
         //Setbackground Color
         self.tableView.backgroundColor = lightBlueColor
+        
+        tableView.tableFooterView = UIView(frame:CGRectZero)
+        
+        tableView.separatorColor = UIColor.whiteColor()
     
         //Get team name
         if let teamName = PFUser.currentUser()!["teamName"] as? String {

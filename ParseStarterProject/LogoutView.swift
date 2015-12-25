@@ -37,7 +37,7 @@ class LogoutView: UIViewController {
 
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 
-                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginViewStack")
+                let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginView")
                 
                 self.presentViewController(viewController, animated: true, completion: nil)
             })

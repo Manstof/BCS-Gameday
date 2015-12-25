@@ -7,6 +7,17 @@
 //
 
 import Foundation
+
+/*
+
+TODO
+
+-Get activity indicator to spin while loading image from facebook
+-Get League and Teams to load properly
+-Hide keyboard when switching between views during login stack
+
+*/
+
 /*  Animating username and password fields in
 
 @IBOutlet weak var centerAlignUsername: NSLayoutConstraint!

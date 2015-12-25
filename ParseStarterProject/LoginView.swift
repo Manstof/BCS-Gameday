@@ -99,11 +99,11 @@ class LoginView: UIViewController, UITextFieldDelegate {
         signupButton.layer.borderWidth = 1
         
         //Border Color
-        usernameField.layer.borderColor = orangeColor.CGColor
+        usernameField.layer.borderColor = UIColor.whiteColor().CGColor
         
-        passwordField.layer.borderColor = orangeColor.CGColor
+        passwordField.layer.borderColor = UIColor.whiteColor().CGColor
         
-        loginButton.layer.borderColor = orangeColor.CGColor
+        loginButton.layer.borderColor = UIColor.whiteColor().CGColor
         
         forgotPasswordButton.layer.borderColor = UIColor.whiteColor().CGColor
         
@@ -156,9 +156,21 @@ class LoginView: UIViewController, UITextFieldDelegate {
     //Start Signup and Sign in
     @IBAction func loginButton(sender: AnyObject) {
         
-        if usernameField.text == "" || passwordField.text == "" {
+        var username = usernameField.text?.lowercaseString
+        
+        var password = passwordField.text
+        
+        if username == "" || password == "" {
             
             displayAlert("Error in form", message: "Please enter a username and password")
+            
+        } else if username?.characters.count < 5 {
+            
+            self.displayAlert("Failed Signup", message: "Username must be greater than 5 characters")
+            
+        } else if password?.characters.count < 8 {
+            
+            self.displayAlert("Failed Signup", message: "Password must be greater than 8 characters")
             
         } else {
             
@@ -176,67 +188,29 @@ class LoginView: UIViewController, UITextFieldDelegate {
             
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
-            var errorMessage = "Please try again later"
-            
-            if signupActive == true {
+            // Send a request to login
+            PFUser.logInWithUsernameInBackground(username!, password: password!, block: { (user, error) -> Void in
                 
-                let user = PFUser()
+                //Kill spinner
+                self.activityIndicator.stopAnimating()
                 
-                user.username = usernameField.text
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
-                user.password = passwordField.text
-                
-                user.signUpInBackgroundWithBlock({ (success, error) -> Void in
+                if ((user) != nil) {
                     
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("HomeView")
+                        
+                        self.presentViewController(viewController, animated: true, completion: nil)
+                    })
                     
-                    if error == nil {
-                        
-                        self.performSegueWithIdentifier("showSigninScreen", sender: self)
-                        
-                    } else {
-                        
-                        if let errorString = error!.userInfo["error"] as? String {
-                            
-                            errorMessage = errorString
-                            
-                        }
-                        
-                        self.displayAlert("Failed SignUp", message: errorMessage)
-                        
-                    }
-                })
-                
-            } else {
-                
-                PFUser.logInWithUsernameInBackground(usernameField.text!, password: passwordField.text!, block: { (user, error) -> Void in
+                } else {
                     
-                    self.activityIndicator.stopAnimating()
-                    
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    if user != nil {
-                        
-                        // Logged In!
-                        
-                        self.performSegueWithIdentifier("loginToReveal", sender: self)
-                        
-                        
-                    } else {
-                        
-                        if let errorString = error!.userInfo["error"] as? String {
-                            
-                            errorMessage = errorString
-                            
-                        }
-                        
-                        self.displayAlert("Failed Login", message: "Please check username and password")
-                        //self.displayAlert("Failed Login", message: errorMessage)
-                        
-                    }
-                })
-            }
+                    self.displayAlert("Failed Signup", message: "\(error)")
+
+                }
+            })
         }
     }
     

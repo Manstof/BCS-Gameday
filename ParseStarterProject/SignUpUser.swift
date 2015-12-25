@@ -21,6 +21,10 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
     
     @IBOutlet var emailField: UITextField!
     
+    @IBOutlet var toLeague: UIButton!
+    
+    @IBOutlet var toLogin: UIButton!
+    
     var imageSet = false
     
     var keyboardShowing = false
@@ -129,12 +133,20 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
         emailField.layer.borderWidth = 1
         
+        toLogin.layer.borderWidth = 1
+        
+        toLeague.layer.borderWidth = 1
+        
         //Border Color
-        usernameField.layer.borderColor = orangeColor.CGColor
+        usernameField.layer.borderColor = UIColor.whiteColor().CGColor
         
-        passwordField.layer.borderColor = orangeColor.CGColor
+        passwordField.layer.borderColor = UIColor.whiteColor().CGColor
         
-        emailField.layer.borderColor = orangeColor.CGColor
+        emailField.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        toLogin.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        toLeague.layer.borderColor = UIColor.whiteColor().CGColor
         
         //Placeholder Text Color
         usernameField.attributedPlaceholder = NSAttributedString(string:"Create Username", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
@@ -228,6 +240,13 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
     }
     
+    @IBAction func backToLogin(sender: AnyObject) {
+        
+        //Move to next screen
+        self.performSegueWithIdentifier("backToLogin", sender: self)
+        
+    }
+    
     @IBAction func continueToLeague(sender: AnyObject) {
         
         if keyboardShowing == false {
@@ -236,7 +255,7 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
             
         }
         
-        var username = usernameField.text
+        var username = usernameField.text?.lowercaseString
         
         var password = passwordField.text
         
