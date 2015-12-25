@@ -93,16 +93,18 @@ class leagues {
                         
                         let leagueNumber = sport[leagueNumberRange]
 
-                        //Keep playing with strings
+                        //Keep playing with strings to get display correct
                         sport.removeRange(sport.startIndex..<sport.startIndex.advancedBy(11))
                         
                         sport.removeRange(sport.endIndex.advancedBy(-384)..<sport.endIndex)
+                        
+                        print(sport)
                         
                         sport = sport.stringByReplacingOccurrencesOfString("</a", withString: "")
                         
                         sport = sport.stringByReplacingOccurrencesOfString("<em c", withString: "")
                         
-                        sport = sport.stringByReplacingOccurrencesOfString("<e", withString: "")
+                        sport = sport.stringByReplacingOccurrencesOfString("<em", withString: "")
                         
                         sport = sport.stringByReplacingOccurrencesOfString("<", withString: "")
                         
@@ -111,6 +113,8 @@ class leagues {
                         sport = sport.stringByReplacingOccurrencesOfString("/", withString: "")
                         
                         sport = sport.stringByReplacingOccurrencesOfString("Season-", withString: "Season -")
+                        
+                        sport = sport.stringByReplacingOccurrencesOfString("Long Beach SUNDAY", withString: "SUNDAY Long Beach - ")
                         
                         sport = sport.stringByReplacingOccurrencesOfString(":", withString: "-")
                         
@@ -122,8 +126,6 @@ class leagues {
                         Leagues["League"] = league
                         
                         Leagues["LeagueNumber"] = leagueNumber
-                        
-                        print("saved")
                         
                         Leagues.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
 

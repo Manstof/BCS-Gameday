@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jEJ-AZ-uhk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CB0-cy-kqs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -21,16 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbC-Ku-K84">
-                                <rect key="frame" x="-1" y="460" width="522" height="60"/>
-                                <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="uIU-tz-7Iq"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xer-FV-ang">
                                 <rect key="frame" x="521" y="400" width="80" height="120"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -46,7 +36,7 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPo-k1-yJ9"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BS6-QL-zCs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BS6-QL-zCs">
                                 <rect key="frame" x="-1" y="400" width="522" height="60"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -112,6 +102,16 @@
                                     <constraint firstAttribute="width" secondItem="nVQ-1c-Ibg" secondAttribute="height" multiplier="18:19" id="j0R-h5-IjG"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jbC-Ku-K84">
+                                <rect key="frame" x="-1" y="460" width="522" height="60"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="uIU-tz-7Iq"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -172,7 +172,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Forgot Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="goN-kR-ejJ">
                                 <rect key="frame" x="207" y="210" width="129" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -240,13 +240,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIW-5k-5eB">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" misplaced="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VIW-5k-5eB">
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="VIW-5k-5eB" secondAttribute="trailing" constant="7" id="7JI-g2-kpR"/>
+                                        <constraint firstItem="VIW-5k-5eB" firstAttribute="leading" secondItem="SUo-Rd-c3Y" secondAttribute="leadingMargin" constant="7" id="RTj-lR-Zie"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="VIW-5k-5eB" id="ek8-lu-3wa"/>
@@ -260,7 +264,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="League" id="4vN-WH-07C"/>
                     <connections>
-                        <segue destination="v28-Tq-Yfk" kind="show" identifier="leagueToTeam" id="ioa-Av-iEp"/>
+                        <segue destination="v28-Tq-Yfk" kind="show" identifier="leagueToTeam" id="pSD-Zn-aOU"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6ZA-Ik-h9F" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,7 +297,7 @@
                                     <action selector="continueToLeague:" destination="6i5-aJ-vvc" eventType="touchUpInside" id="Sfa-Lv-K5R"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="email address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aP7-Jk-r8X">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aP7-Jk-r8X">
                                 <rect key="frame" x="0.0" y="460" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -301,7 +305,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="done"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newUser.png" translatesAutoresizingMaskIntoConstraints="NO" id="wQi-AR-SNr">
                                 <rect key="frame" x="212" y="84" width="176" height="176"/>
@@ -309,7 +313,7 @@
                                     <constraint firstAttribute="width" secondItem="wQi-AR-SNr" secondAttribute="height" multiplier="1:1" id="wJ9-U9-2od"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xRl-Ls-Fm6">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xRl-Ls-Fm6">
                                 <rect key="frame" x="0.0" y="340" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -319,7 +323,7 @@
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V5j-Hv-BUi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="V5j-Hv-BUi">
                                 <rect key="frame" x="0.0" y="400" width="600" height="60"/>
                                 <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -327,7 +331,7 @@
                                 </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKN-T0-h2Q">
                                 <rect key="frame" x="0.0" y="280" width="600" height="60"/>
@@ -367,12 +371,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign Up" id="XT4-5B-pPl"/>
                     <connections>
-                        <outlet property="email" destination="aP7-Jk-r8X" id="ThQ-i7-L85"/>
                         <outlet property="emailField" destination="aP7-Jk-r8X" id="OCZ-if-JYJ"/>
-                        <outlet property="passwordField" destination="V5j-Hv-BUi" id="Psu-Ia-axH"/>
+                        <outlet property="passwordField" destination="V5j-Hv-BUi" id="WL5-vb-5u9"/>
                         <outlet property="userImage" destination="wQi-AR-SNr" id="oCi-VN-7tS"/>
                         <outlet property="usernameField" destination="xRl-Ls-Fm6" id="yyr-cn-QrL"/>
-                        <segue destination="CB0-cy-kqs" kind="show" identifier="toLeague" id="EtW-WO-M63"/>
+                        <segue destination="CB0-cy-kqs" kind="show" identifier="toLeague" id="s9G-3j-4BH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NEh-o7-cXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -941,7 +944,7 @@
         <image name="newUser.png" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TSZ-a7-iMd"/>
+        <segue reference="sCF-1C-Boe"/>
         <segue reference="joM-Ci-SCH"/>
     </inferredMetricsTieBreakers>
 </document>

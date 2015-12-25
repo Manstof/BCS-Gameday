@@ -77,16 +77,21 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
                     
                     //Round Image
                     self.userImage.layer.borderWidth = 1
+                    
                     self.userImage.layer.masksToBounds = false
+                    
                     self.userImage.layer.borderColor = UIColor.whiteColor().CGColor
+                    
                     self.userImage.layer.cornerRadius = self.userImage.frame.height/2
+                    
                     self.userImage.clipsToBounds = true
+                    
                     self.imageSet = true
+                    
                     self.userImage.image = UIImage(data:imageData!)
                     
                     //Animate Image
                     UIView.animateWithDuration(0.6, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                        
                         
                         self.userImage.frame = CGRectMake(50, 50, 150, 150)
                         
@@ -97,7 +102,6 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
                 }
             }
         }
-        
     }
     
     override func viewDidLoad() {
@@ -131,6 +135,13 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
         passwordField.layer.borderColor = orangeColor.CGColor
         
         emailField.layer.borderColor = orangeColor.CGColor
+        
+        //Placeholder Text Color
+        usernameField.attributedPlaceholder = NSAttributedString(string:"Create Username", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        passwordField.attributedPlaceholder = NSAttributedString(string:"Create Password", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        emailField.attributedPlaceholder = NSAttributedString(string:"Enter email", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         
     }
     
@@ -218,28 +229,49 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
     }
     
     @IBAction func continueToLeague(sender: AnyObject) {
+        
+        if keyboardShowing == false {
+        
+            self.view.frame.origin.y = 0
             
+        }
+        
+        var username = usernameField.text
+        
+        var password = passwordField.text
+        
+        var email = emailField.text
+        
+        //Check if fields have content
         if imageSet == false {
             
             self.displayAlert("Failed Signup", message: "Please choose a picture")
             
-        } else if usernameField.text == "" {
+        } else if username == "" {
                 
             self.displayAlert("Failed Signup", message: "Please create a username")
             
-        } else if passwordField.text == "" {
+        } else if password == "" {
             
             self.displayAlert("Failed Signup", message: "Please create a password")
-            
-            if ((passwordField.text?.containsString(" ")) != nil) {
-                
-                self.displayAlert("Failed Signup", message: "Password cannot contain a space")
-                
-            }
         
-        } else if emailField.text == "" {
+        } else if email == "" {
         
             self.displayAlert("Failed Signup", message: "Please enter an email")
+            
+        //Validate Fields
+            
+        } else if username?.characters.count < 5 {
+            
+            self.displayAlert("Failed Signup", message: "Username must be greater than 5 characters")
+            
+        } else if password?.characters.count < 8 {
+            
+            self.displayAlert("Failed Signup", message: "Password must be greater than 8 characters")
+            
+        } else if email?.characters.count < 8 {
+
+            self.displayAlert("Failed Signup", message: "Password must be greater than 8 characters")
             
         } else {
         
@@ -260,7 +292,17 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
             activityIndicator.startAnimating()
             
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
-
+        
+            //*************************
+            //Save Information to Parse
+            let newUser = PFUser()
+            
+            newUser.username = username
+            
+            newUser.password = password
+            
+            newUser.email = email
+            
             //*****************************
             //Save chosen image for profile
             let imageData = UIImageJPEGRepresentation(userImage.image!, 0.0)
@@ -268,33 +310,36 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
             let imageFile:PFFile = PFFile(name: "image.png", data: imageData!)
             
             PFUser.currentUser()?["image"] = imageFile
-        
-            //*************************
-            //Save Information to Parse
-            let username = usernameField.text
             
-            let password = passwordField.text
-            
-            let email = emailField.text
-            
-            PFUser.currentUser()?["username"] = username
-            
-            PFUser.currentUser()?["password"] = password
-            
-            PFUser.currentUser()?["email"] = email
-            
-            //Save all data
-            PFUser.currentUser()?.save()
-        
-            //Kill spinner
-            self.activityIndicator.stopAnimating()
-            
-            UIApplication.sharedApplication().endIgnoringInteractionEvents()
-            
-            //Move to next screen
-            performSegueWithIdentifier("toLeague", sender: self)
-        
-            }
+            //*****************************
+            //Sign up the user asynchronously
+            newUser.signUpInBackgroundWithBlock({ (succeed, error) -> Void in
+
+                //Kill spinner
+                self.activityIndicator.stopAnimating()
+                
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                
+                //Start parse things
+                if ((error) != nil) {
+                    
+                    self.displayAlert("Error", message: "\(error)")
+                    
+                } else {
+                    
+                    let alert = UIAlertView(title: "Success", message: "Signed Up", delegate: self, cancelButtonTitle: "OK")
+                    
+                    alert.show()
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        
+                        //Move to next screen
+                        self.performSegueWithIdentifier("toLeague", sender: self)
+                        
+                    })
+                }
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {

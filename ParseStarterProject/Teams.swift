@@ -65,8 +65,6 @@ class Teams {
                     
                     teamWebString = teamWebString.stringByReplacingOccurrencesOfString("\0", withString: "")
                     
-                    //print(teamWebString)
-                    
                     teamDataArray = teamWebString.componentsSeparatedByString("<li class=\"clr\">")
                     
                     teamDataArray.removeAtIndex(0)

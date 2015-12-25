@@ -42,8 +42,6 @@ class SignUpLeague: PFQueryTableViewController {
         
         query.orderByAscending("League")
         
-        print("Display")
-        
         return query
         
     }
@@ -53,6 +51,10 @@ class SignUpLeague: PFQueryTableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SignUpLeagueCell
         
         cell.titleLabel.text = object?.objectForKey("League") as? String
+        
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+   
+        cell.textLabel?.numberOfLines = 0
         
         //Configure Cell Colors
         cell.backgroundColor = UIColor.orangeColor()

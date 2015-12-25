@@ -105,8 +105,6 @@ class MenuView: UITableViewController {
         
         let segue = self.MenuViewItems[indexPath.row]
         
-        print(segue)
-        
         performSegueWithIdentifier(segue, sender: self)
         
     }

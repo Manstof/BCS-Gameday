@@ -26,7 +26,7 @@ class LoginView: UIViewController, UITextFieldDelegate {
     
     var imageSet = false
     
-    var signupActive = false
+    var signupActive = true
     
     var keyboardShowing = false
     
@@ -62,7 +62,6 @@ class LoginView: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
     
     }
     
@@ -76,9 +75,9 @@ class LoginView: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         //Keyboard Things
-        usernameField.delegate=self
+        usernameField.delegate = self
         
-        passwordField.delegate=self
+        passwordField.delegate = self
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         
@@ -109,6 +108,11 @@ class LoginView: UIViewController, UITextFieldDelegate {
         forgotPasswordButton.layer.borderColor = UIColor.whiteColor().CGColor
         
         signupButton.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        //Placeholder Text Color
+        usernameField.attributedPlaceholder = NSAttributedString(string:"Username", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
+        passwordField.attributedPlaceholder = NSAttributedString(string:"Password", attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         
     }
     
