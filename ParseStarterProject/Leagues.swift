@@ -12,7 +12,7 @@ import FBSDKCoreKit
 
 class leagues {
     
-    var existingArray = [String()]
+    //var existingArray = [String()]
     
     var newArray = [String()]
     
@@ -45,7 +45,7 @@ class leagues {
             }
         }
         */
-        
+        /*
         let query = PFQuery(className: "Leagues")
         
         //query.whereKey("League", equalTo: league)
@@ -71,6 +71,7 @@ class leagues {
                 print("error")
             }
         }
+        */
         
         //Sports
         let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/widgets/leagueListingContent?heightSetting=600px&wmode=opaque")
@@ -147,7 +148,7 @@ class leagues {
                         
                         sport = sport.stringByReplacingOccurrencesOfString(":", withString: "-")
                         
-                        let league = sport
+                        //let league = sport
                         
                         /*
                         //Saving to Parse

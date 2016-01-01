@@ -10,7 +10,7 @@ import UIKit
 import Parse
 import ParseUI
 
-class SignUpLeague: PFQueryTableViewController {
+class SignUpLeague: UITableViewController {
     
     var activityIndicator = UIActivityIndicatorView()
     
@@ -27,6 +27,10 @@ class SignUpLeague: PFQueryTableViewController {
         
         Update.leagues()
         
+        let leagueArray = leagues().newArray
+        
+        print(leagueArray)
+        
         //Configure Colors for Table
         tableView.backgroundColor = UIColor.orangeColor()
         
@@ -36,6 +40,7 @@ class SignUpLeague: PFQueryTableViewController {
         
     }
     
+    /*
     override func queryForTable() -> PFQuery {
         
         let query = PFQuery(className: "Leagues")
@@ -68,6 +73,31 @@ class SignUpLeague: PFQueryTableViewController {
         
         return cell
     }
+    */
+    
+    ////////
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    
+        return 0
+    
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    
+    // Configure the cell...
+    
+    return cell
+    
+    }
+    
+    //////
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
