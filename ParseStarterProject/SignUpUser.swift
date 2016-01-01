@@ -122,6 +122,10 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
+        //Looks for single or multiple taps to dismiss keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         //Configure Pretty Things
         //Set Background Color
         self.view.backgroundColor = orangeColor
@@ -193,6 +197,12 @@ class SignUpUser: UIViewController, UITextFieldDelegate, UINavigationControllerD
         emailField.resignFirstResponder()
         
         return true;
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     //*********************

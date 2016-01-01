@@ -21,7 +21,7 @@ class Schedule {
         
         let teamNumber = PFUser.currentUser()!["TeamNumber"] as? String
         
-        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/\(leagueNumber!)/schedule?gameState=&teamId=\(teamNumber!)&locationId=")
+        let attemptedUrl = NSURL(string: "http://beachcitysports.leagueapps.com/leagues/66872/schedule?gameState=&teamId=291781&locationId=")
         
         print(attemptedUrl)
         

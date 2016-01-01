@@ -12,8 +12,12 @@ import FBSDKCoreKit
 
 class leagues {
     
+    var existingArray = [String()]
+    
+    var newArray = [String()]
+    
     func leagues() {
-        
+        /*
         // Then query and compare (check to see if league entries exist)
         let query = PFQuery(className: "Leagues")
         
@@ -33,6 +37,33 @@ class leagues {
                         object.deleteInBackground()
                         
                     }
+                }
+                
+            } else {
+                
+                print("error")
+            }
+        }
+        */
+        
+        let query = PFQuery(className: "Leagues")
+        
+        //query.whereKey("League", equalTo: league)
+        
+        query.findObjectsInBackgroundWithBlock {
+            
+            (objects: [AnyObject]?, error: NSError?) in
+            
+            if error == nil {
+                    
+                for object in objects! {
+                    
+                    let objectName = object["League"] as! String
+                    
+                    self.existingArray.append(objectName)
+                    
+                    print(objectName)
+                    
                 }
                 
             } else {
@@ -98,8 +129,6 @@ class leagues {
                         
                         sport.removeRange(sport.endIndex.advancedBy(-384)..<sport.endIndex)
                         
-                        print(sport)
-                        
                         sport = sport.stringByReplacingOccurrencesOfString("</a", withString: "")
                         
                         sport = sport.stringByReplacingOccurrencesOfString("<em c", withString: "")
@@ -120,6 +149,7 @@ class leagues {
                         
                         let league = sport
                         
+                        /*
                         //Saving to Parse
                         let Leagues = PFObject(className: "Leagues")
                         
@@ -128,7 +158,10 @@ class leagues {
                         Leagues["LeagueNumber"] = leagueNumber
                         
                         Leagues.saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in }
-
+                        */
+                        
+                        self.newArray.append(sport)
+                        
                     }
                     
                 } else {

@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             blue: 255/255.0,
             alpha: 1.0)
         
-        let barColor = orangeColor
+        let barColor = lightBlueColor
         
         //Declaration
         let navigationBarAppearace = UINavigationBar.appearance()
